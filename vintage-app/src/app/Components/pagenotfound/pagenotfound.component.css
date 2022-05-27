@@ -56,22 +56,25 @@
 
 }
 
-.pnf-content button{
+.pnf-content a{
     width: 50%;
     height: 5vh;
     margin-top: 3vh;
     margin: auto;
     display: block;
-    padding: auto;
-    font-size: 14px;
+    padding-top: 2vh;
+    text-align: center;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     border: 1px solid red;
     background: transparent;
     border-radius: 10px 10px;
+    text-decoration: none;
+    color:  black;
 }
 
-.pnf-content button:hover{
+.pnf-content a:hover{
     cursor: pointer;
     background-color: red;
     color: #fff;
@@ -83,7 +86,7 @@
         flex-direction: column;
     }
 
-    .pnf-content button{
+    .pnf-content a{
         border: 1px solid red;
         font-size: 12px;
         margin-bottom: 4vh;
