@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SigninComponent } from './Components/signin/signin.component';
-
+import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
-  {path: '', component:SigninComponent }
+  {path:'page-not-found', component: PagenotfoundComponent},
+  {path: '**', redirectTo: '/page-not-found'}
 ];
 
 @NgModule({
