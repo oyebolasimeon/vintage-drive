@@ -16,6 +16,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { DashboardNavbarComponent } from './dashboard/dashboard-navbar/dashboard-navbar.component';
+import { DashboardSidebarComponent } from './Components/dashboard/dashboard-sidebar/dashboard-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardNavbarComponent } from './dashboard/dashboard-navbar/dashboard
     SignupComponent,
     PagenotfoundComponent,
     NavbarComponent,
-    DashboardNavbarComponent
+    DashboardNavbarComponent,
+    DashboardSidebarComponent
   ],
   imports: [
     BrowserModule,
