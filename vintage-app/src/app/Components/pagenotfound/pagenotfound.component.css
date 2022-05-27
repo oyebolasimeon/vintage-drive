@@ -77,3 +77,18 @@
     color: #fff;
     transition: ease-in-out 0.3s;
 }
+
+@media screen and (max-width: 500px) {
+    .pnf-body{
+        flex-direction: column;
+    }
+
+    .pnf-content button{
+        border: 1px solid red;
+        font-size: 12px;
+        margin-bottom: 4vh;
+        border-radius: 2px 2px;
+        height: 5vh;
+
+    }
+}
