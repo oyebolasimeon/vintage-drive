@@ -12,6 +12,7 @@ import { ServicesComponent } from './Components/dashboard/services/services.comp
 import { QuoteComponent } from './Components/dashboard/quote/quote.component';
 import { InvoiceComponent } from './Components/dashboard/invoice/invoice.component';
 import { StaffComponent } from './Components/dashboard/staff/staff.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StaffComponent } from './Components/dashboard/staff/staff.component';
     ServicesComponent,
     QuoteComponent,
     InvoiceComponent,
-    StaffComponent
+    StaffComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
