@@ -13,6 +13,7 @@ import { QuoteComponent } from './Components/dashboard/quote/quote.component';
 import { InvoiceComponent } from './Components/dashboard/invoice/invoice.component';
 import { StaffComponent } from './Components/dashboard/staff/staff.component';
 import { SignupComponent } from './Components/signup/signup.component';
+import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SignupComponent } from './Components/signup/signup.component';
     QuoteComponent,
     InvoiceComponent,
     StaffComponent,
-    SignupComponent
+    SignupComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
