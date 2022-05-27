@@ -14,6 +14,7 @@ import { InvoiceComponent } from './Components/dashboard/invoice/invoice.compone
 import { StaffComponent } from './Components/dashboard/staff/staff.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.co
     InvoiceComponent,
     StaffComponent,
     SignupComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
