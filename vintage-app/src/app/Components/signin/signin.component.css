@@ -1,4 +1,93 @@
 body {
   margin: 0;
   padding: 0;
+
+}
+
+h1 {
+  margin-top: 6rem;
+  font-size: 56px;
+  margin-bottom: 1rem;
+}
+
+.sign-box {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  font-family:-apple-system, BlinkMacSystemFont, 'Open Sans', Roboto, sans-serif;
+  margin-left: 1rem;
+  margin-right: 2rem;
+}
+
+aside {
+  width:50%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+input {
+  width: 80%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid gray;
+  border-radius: 12px;
+}
+
+input[type="submit"] {
+  background: rgb(12, 12, 12);
+  border: 1px solid black;
+  color:white;
+}
+
+input[type="submit"]:hover {
+  background: rgb(91, 91, 91);
+  border: 1px solid rgb(61, 61, 61);
+}
+
+a {
+  color: white !important;
+}
+
+p{
+  font-size: 16px;
+}
+
+.special {
+  font-weight: 600;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items:stretch;
+  margin-top: 3rem;
+  font-size: 100px;
+  font-weight: bolder;
+}
+
+.first-text {
+  margin-left: -5rem;
+}
+
+.second-text {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  font-size: 78px;
+  color:rgb(170, 170, 170);
+  margin-left: 5rem;
+}
+
+.second-text img {
+  width:54px;
+  height:54px;
 }

@@ -7,12 +7,19 @@ header {
   justify-content: space-between;
   align-items: baseline;
   color: rgb(230, 226, 226);
-  background-color: black;
+  background-color: rgb(45, 45, 45);
   border-radius: 0px 0px 3px 3px;
 }
 
 h3 {
   margin-left: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  margin-right: .5rem;
 }
 
 nav {
