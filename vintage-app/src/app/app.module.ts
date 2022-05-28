@@ -17,7 +17,6 @@ import { PagenotfoundComponent } from './Components/pagenotfound/pagenotfound.co
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { DashboardSidebarComponent } from './Components/dashboard/dashboard-sidebar/dashboard-sidebar.component';
 import { DashboardNavbarComponent } from './Components/dashboard/dashboard-navbar/dashboard-navbar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -41,7 +40,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule
   ],
