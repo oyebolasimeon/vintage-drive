@@ -1,0 +1,29 @@
+header{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 6vh;
+  background-color: black;
+}
+
+.logo-container{
+  flex: 1;
+}
+.logo-container img{
+  height: 20vh;
+  margin-top: 2vh;
+}
+
+nav{
+  flex: 1;
+}
+nav a{
+  float: right;
+  margin-right: 3vh;
+  color: #fff;
+  font-size: 24px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Open Sans', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+}
