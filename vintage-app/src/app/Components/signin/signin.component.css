@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  z-index: 1;
 
 }
 
@@ -19,10 +20,12 @@ h1 {
   font-family:-apple-system, BlinkMacSystemFont, 'Open Sans', Roboto, sans-serif;
   margin-left: 1rem;
   margin-right: 2rem;
+  z-index: 2;
 }
 
 aside {
   width:50%;
+  z-index: 3;
 }
 
 main {
@@ -34,11 +37,13 @@ main {
 }
 
 input {
+  background-color: rgb(202, 202, 202);
   width: 80%;
   padding: 1rem;
   margin-bottom: 2rem;
   border: 1px solid gray;
   border-radius: 12px;
+  outline: none;
 }
 
 input[type="submit"] {
@@ -91,3 +96,12 @@ header {
   width:54px;
   height:54px;
 }
+
+.img {
+  height: 680px;
+  width: 780px;
+  z-index: 4;
+  position: relative;
+  bottom: 6rem;
+}
+
