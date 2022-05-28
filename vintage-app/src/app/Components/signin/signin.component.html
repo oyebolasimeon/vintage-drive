@@ -1,4 +1,26 @@
 <app-navbar></app-navbar>
 <section class="sign-box">
-    
+    <div class="content-box">
+        <h1>Login to your account</h1>
+        <p>A secured Auto Care System</p>
+        <form>
+            <input type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="Enter Registered Email" 
+                    [(ngModel)]="email" 
+                    required />
+            <input type="password" 
+                    name="password" 
+                    id="password" 
+                    placeholder="Enter Password" 
+                    [(ngModel)]="password" 
+                    required />
+            <button [disabled]="email === '' || password === ''" >Login To Your Account</button>
+        </form>
+    </div>
+
+    <div class="signin-image-box">
+
+    </div>
 </section>
