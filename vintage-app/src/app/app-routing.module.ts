@@ -6,7 +6,9 @@ import { SigninComponent } from './Components/signin/signin.component';
 const routes: Routes = [
   {path:'login', component: SigninComponent},
   {path:'page-not-found', component: PagenotfoundComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', redirectTo: '/page-not-found'}
+  
 ];
 
 @NgModule({
