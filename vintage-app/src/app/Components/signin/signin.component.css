@@ -1,4 +1,78 @@
-body {
-  margin: 0;
-  padding: 0;
+.sign-box{
+  display: flex;
+  width: 100%;
+  min-height: 94vh;
+  background-color: rgb(19, 18, 18);
+  margin: auto;
+}
+
+.content-box{
+  flex: 1;
+}
+.content-box h1{
+  color: #fff;
+  font-size: 4vh;
+  text-align: center;
+  font-family:'Courier New', Courier, monospace;
+  margin-top: 20vh;
+  text-transform: capitalize;
+}
+.content-box p{
+  text-align: center;
+  color: gray;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+.content-box form{
+  width: 65%;
+  margin: auto;
+  display: block;
+  min-height: 50%;
+  /* background-color: #fff; */
+}
+.content-box form input{
+  width: 100%;
+  margin: auto;
+  height: 6vh;
+  margin-top: 5vh;
+  background-color: rgb(48, 46, 46);
+  border: none;
+  border-radius: 6px 6px;
+  outline: none;
+  text-align: center;
+  padding-left: 2vh;
+  font-size: 15px;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+}
+.content-box form button:disabled{
+  background-color: rgb(69, 228, 69);
+}
+.content-box form button{
+  width: 100%;
+  margin: auto;
+  height: 6vh;
+  margin-top: 5vh;
+  background-color: green;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px 6px;
+  outline: none;
+  text-align: center;
+  padding-left: 2vh;
+  font-size: 15px;
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.signin-image-box{
+  flex: 1;
+  background-image: url(../../../assets/logo.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signin-image-box img{
+  width: 100%;
+  /* height: 100%; */
+  margin: auto;
 }
