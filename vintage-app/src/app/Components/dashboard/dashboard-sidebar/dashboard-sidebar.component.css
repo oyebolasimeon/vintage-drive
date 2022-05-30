@@ -1,0 +1,20 @@
+.side-bar{
+    width: 60%;
+    background-color: rgb(19, 18, 18);
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 90vh;
+}
+
+.side-bar ul{
+    list-style: none;
+    padding-top: 8vh;
+}
+.side-bar ul li{
+    padding-top: 5vh;
+    margin: auto;
+}
+
+.side-bar ul li fa-icon{
+    padding-right: 2vh;
+}
