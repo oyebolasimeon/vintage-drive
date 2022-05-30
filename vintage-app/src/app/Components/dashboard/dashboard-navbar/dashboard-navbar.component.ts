@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 export class DashboardNavbarComponent implements OnInit {
 
   facog = faCog;
+  fasignout = faPowerOff;
 
   constructor() { }
   ngOnInit(): void {

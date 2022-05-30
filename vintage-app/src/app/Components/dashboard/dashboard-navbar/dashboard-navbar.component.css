@@ -6,24 +6,23 @@
   color: white;
   border-bottom: 1px solid black;
   border-radius: 0px 0px 3px 3px;
-}
-
-nav {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items:baseline;
+  align-items: center;
 }
 
 header {
-  width: 50%;
-  margin-top: .5rem;
+  flex: 1;
   font-weight: bold;
-  margin-left: 3rem;
+  margin-left: 3vh;
+}
+
+.dash-nav .dash-nav-btn{
+  flex: 2;
+
 }
 
 button {
-  background-color: rgb(82, 82, 82);
+  background-color: red;
   border: 1px solid rgb(82,82, 82);
   color: white;
   border-radius: .5rem;
