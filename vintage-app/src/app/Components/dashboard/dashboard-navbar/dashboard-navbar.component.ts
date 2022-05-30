@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-dashboard-navbar',
@@ -7,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardNavbarComponent implements OnInit {
 
-  constructor() { }
+  facog = faCog;
 
+  constructor() { }
   ngOnInit(): void {
   }
 
