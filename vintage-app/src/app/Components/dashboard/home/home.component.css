@@ -1,0 +1,8 @@
+.main-page{
+    width: 100%;
+    display: grid;
+    align-items: center;
+    margin: auto;
+    min-height: 90vh;
+    background-color: black;
+}

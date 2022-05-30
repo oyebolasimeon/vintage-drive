@@ -7,6 +7,9 @@ const routes: Routes = [
   {path:'login', component: SigninComponent},
   {path:'page-not-found', component: PagenotfoundComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'admin', 
+    loadChildren: () => 
+      import('./Components/dashboard/dashboard.module').then((s) => s.DashboardModule)},
   {path: '**', redirectTo: '/page-not-found'}
   
 ];
