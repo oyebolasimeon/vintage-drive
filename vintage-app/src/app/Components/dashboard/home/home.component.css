@@ -3,6 +3,7 @@
     display: grid;
     align-items: center;
     margin: auto;
-    min-height: 90vh;
+    min-height: 94vh;
     background-color: black;
+    grid-template-columns: 30% 70%;
 }
