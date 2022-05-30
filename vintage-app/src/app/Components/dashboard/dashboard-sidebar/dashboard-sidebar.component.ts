@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard-sidebar',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-sidebar.component.css']
 })
 export class DashboardSidebarComponent implements OnInit {
+
+  fahome = faHome;
 
   constructor() { }
 

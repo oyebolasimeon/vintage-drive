@@ -4,6 +4,6 @@
     align-items: center;
     margin: auto;
     min-height: 94vh;
-    background-color: black;
+    /* background-color: rgb(19, 18, 18); */
     grid-template-columns: 30% 70%;
 }
