@@ -14,6 +14,19 @@
     padding-top: 5vh;
     margin: auto;
 }
+.side-bar ul li:hover{
+    background-color: grey;
+    border: none;
+    border-radius: 5px 5px;
+    margin-right: 5vh;
+    padding: 2vh;
+    transition: 0.8s ease-out;
+    
+}
+.side-bar ul li a{
+    color: #fff;
+    text-decoration: none;
+}
 
 .side-bar ul li fa-icon{
     padding-right: 2vh;
