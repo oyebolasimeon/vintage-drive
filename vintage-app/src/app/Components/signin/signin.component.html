@@ -16,7 +16,10 @@
                     placeholder="Enter Password" 
                     [(ngModel)]="password" 
                     required />
-            <button [disabled]="email === '' || password === ''" >Login To Your Account</button>
+            <button 
+                    [disabled]="email === '' || password === ''" >
+                    Login To Your Account
+            </button>
         </form>
     </div>
 
