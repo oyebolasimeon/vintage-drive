@@ -47,6 +47,7 @@
 }
 .content-box form button:disabled{
   background-color: rgb(69, 228, 69);
+  cursor:not-allowed;
 }
 .content-box form button{
   width: 100%;
