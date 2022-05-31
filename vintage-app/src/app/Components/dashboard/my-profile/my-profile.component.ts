@@ -9,6 +9,11 @@ export class MyProfileComponent implements OnInit {
 
   constructor() { }
 
+  name = localStorage.getItem('name');
+  email = localStorage.getItem('email')
+  role = localStorage.getItem('role')
+  
+
   ngOnInit(): void {
   }
 
