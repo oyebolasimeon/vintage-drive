@@ -14,4 +14,8 @@ export class AuthService {
   proceedLogin(userCred:any){
     return this.http.post(this.API_URL, userCred)
   }
+
+  IsLoggedIn(){
+    return localStorage.getItem('token') != null;
+  }
 }
