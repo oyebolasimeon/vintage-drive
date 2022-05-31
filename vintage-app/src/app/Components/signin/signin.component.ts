@@ -35,6 +35,9 @@ export class SigninComponent implements OnInit {
         if(results != null){
             this.responseData = results;
             localStorage.setItem('token', this.responseData.payload.token);
+            localStorage.setItem('name', this.responseData.payload.name)
+            localStorage.setItem('email', this.responseData.payload.email)
+            localStorage.setItem('role', this.responseData.payload.role)
             this.router.navigate(['/admin'])
         }
       })
