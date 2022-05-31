@@ -4,6 +4,7 @@
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
     min-height: 90vh;
+    border-radius: 0px 10px 10px 0px;
 }
 
 .side-bar ul{
