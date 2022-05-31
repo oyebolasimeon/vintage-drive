@@ -6,21 +6,24 @@
         <p style="padding-top: 2vh;">
             <fa-icon [icon]="falock" class="fa-2x" ></fa-icon> 
         </p>
-        <form>
+        <form [formGroup]="Login" (ngSubmit)="ProceedLogin()">
             <input type="email" 
                     name="email" 
                     id="email" 
                     placeholder="Enter Registered Email" 
                     [(ngModel)]="email" 
+                    formControlName="email"
+                    autocomplete="off"
                     required />
             <input type="password" 
                     name="password" 
                     id="password" 
                     placeholder="Enter Password" 
+                    formControlName="password"
                     [(ngModel)]="password" 
                     required />
             <button 
-                    [disabled]="email === '' || password === ''" >
+                    [disabled]="email === '' || password === ''" type="submit">
                     Login To Your Account
             </button>
         </form>
