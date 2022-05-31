@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/shared/auth.guard';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { BoardComponent } from './board/board.component';
 import { ClientComponent } from './client/client.component';
@@ -15,13 +16,13 @@ const routes: Routes = [
     path: '', 
     component: HomeComponent,
     children: [
-      { path: 'client', component: ClientComponent},
-      { path: 'invoice', component: InvoiceComponent},
-      { path: 'home', component: BoardComponent },
-      { path: 'quote', component: QuoteComponent },
-      { path: 'services', component: ServicesComponent },
-      { path: 'vehicle', component: VehicleComponent },
-      { path: 'staff', component: StaffComponent },
+      { path: 'client', component: ClientComponent, canActivate:[AuthGuard] },
+      { path: 'invoice', component: InvoiceComponent, canActivate:[AuthGuard] },
+      { path: 'home', component: BoardComponent, canActivate:[AuthGuard] },
+      { path: 'quote', component: QuoteComponent, canActivate:[AuthGuard] },
+      { path: 'services', component: ServicesComponent, canActivate:[AuthGuard] },
+      { path: 'vehicle', component: VehicleComponent, canActivate:[AuthGuard] },
+      { path: 'staff', component: StaffComponent, canActivate:[AuthGuard] },
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: PagenotfoundComponent}
     ]
