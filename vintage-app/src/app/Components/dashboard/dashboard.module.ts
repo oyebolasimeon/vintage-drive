@@ -9,10 +9,11 @@ import { ServicesComponent } from './services/services.component';
 import { StaffComponent } from './staff/staff.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { BoardComponent } from './board/board.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 
 @NgModule({
-  declarations: [ ClientComponent, InvoiceComponent, BoardComponent],
+  declarations: [ ClientComponent, InvoiceComponent, BoardComponent, MyProfileComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule

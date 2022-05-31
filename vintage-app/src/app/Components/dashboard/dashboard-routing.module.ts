@@ -6,6 +6,7 @@ import { BoardComponent } from './board/board.component';
 import { ClientComponent } from './client/client.component';
 import { HomeComponent } from './home/home.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 import { QuoteComponent } from './quote/quote.component';
 import { ServicesComponent } from './services/services.component';
 import { StaffComponent } from './staff/staff.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'services', component: ServicesComponent, canActivate:[AuthGuard] },
       { path: 'vehicle', component: VehicleComponent, canActivate:[AuthGuard] },
       { path: 'staff', component: StaffComponent, canActivate:[AuthGuard] },
+      { path: 'my-profile', component: MyProfileComponent, canActivate:[AuthGuard] },
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: PagenotfoundComponent}
     ]
