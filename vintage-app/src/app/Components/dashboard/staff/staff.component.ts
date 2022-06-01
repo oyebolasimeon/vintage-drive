@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-staff',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffComponent implements OnInit {
 
-  constructor() { }
+  stafflist: any;
+
+  constructor(private service:AuthService) {
+      this.service.GetStaff().subscribe(result => {
+        this.stafflist = result;
+        console.log(this.stafflist.payload);
+        
+      } )
+   }
 
   ngOnInit(): void {
   }
 
 }
+
