@@ -6,3 +6,23 @@
   min-height: 98vh;
   margin: auto;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+button {
+  background-color: green;
+  color:white;
+  padding: 4px 8px;
+  height:10%;
+  margin-right: 5rem;
+  border: 1px solid green;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 16px;
+  font-size: 14px;
+}
