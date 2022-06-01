@@ -7,12 +7,20 @@ import { post } from 'jquery';
 })
 export class AuthService {
 
-  API_URL = "https://lightup-autocare.herokuapp.com/staffs/login"
+  endpoint =  {
+    "staff": "/staffs",
+    "vehicle": "/vehicles",
+    "invoice": "/invoices"
+  }
+
+  BASE_URL = "https://lightup-autocare.herokuapp.com"
+  LOGIN_URL = this.BASE_URL + this.endpoint.staff + "/login";
+
 
   constructor(private http:HttpClient) { }
 
   proceedLogin(userCred:any){
-    return this.http.post(this.API_URL, userCred)
+    return this.http.post(this.LOGIN_URL, userCred)
   }
 
   IsLoggedIn(){
