@@ -13,6 +13,8 @@ export class StaffComponent implements OnInit {
   constructor(private service:AuthService) {
       this.service.GetStaff().subscribe(result => {
         this.stafflist = result;
+        console.log(this.stafflist.payload);
+        
       } )
    }
 

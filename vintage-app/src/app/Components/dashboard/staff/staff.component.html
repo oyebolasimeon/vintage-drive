@@ -1,1 +1,19 @@
-<p>staff works!</p>
+<table>
+    <thead>
+       <tr>
+           <td>id</td>
+           <td>name</td>
+           <td>role</td>
+           <td>status</td>
+       </tr>
+    </thead>
+
+    <tbody >
+        <tr >
+            <td *ngFor = "let staff of stafflist"> {{staff.payload.id}} </td>
+
+        </tr>
+    </tbody>
+
+
+</table>

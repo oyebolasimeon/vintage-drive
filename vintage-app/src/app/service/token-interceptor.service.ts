@@ -10,7 +10,7 @@ export class TokenInterceptorService implements HttpInterceptor {
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    let token = ''
+    let token = `${localStorage.getItem('token')}`
     let jwttoken = req.clone({
       setHeaders: {
         Authorization: token
