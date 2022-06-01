@@ -12,7 +12,7 @@ import { DashboardNavbarComponent } from './Components/dashboard/dashboard-navba
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './service/token-interceptor.service';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,8 @@ import { CommonModule } from '@angular/common';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
-    CommonModule
+    FormsModule
+    // CommonModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, 
