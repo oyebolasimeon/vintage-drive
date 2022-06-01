@@ -23,8 +23,8 @@ const routes: Routes = [
       { path: 'quote', component: QuoteComponent, canActivate:[AuthGuard] },
       { path: 'services', component: ServicesComponent, canActivate:[AuthGuard] },
       { path: 'vehicle', component: VehicleComponent, canActivate:[AuthGuard] },
-      { path: 'staff', component: StaffComponent, canActivate:[AuthGuard] },
       { path: 'my-profile', component: MyProfileComponent, canActivate:[AuthGuard] },
+      { path: 'staff', component: StaffComponent, canActivate:[AuthGuard] },
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: PagenotfoundComponent}
     ]

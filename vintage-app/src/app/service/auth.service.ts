@@ -7,7 +7,7 @@ import { post } from 'jquery';
 })
 export class AuthService {
 
-  endpoint =  {
+  endpoint = {
     "staff": "/staffs",
     "vehicle": "/vehicles",
     "invoice": "/invoices"
@@ -17,13 +17,17 @@ export class AuthService {
   LOGIN_URL = this.BASE_URL + this.endpoint.staff + "/login";
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  proceedLogin(userCred:any){
+  proceedLogin(userCred: any) {
     return this.http.post(this.LOGIN_URL, userCred)
   }
 
-  IsLoggedIn(){
+  IsLoggedIn() {
     return localStorage.getItem('token') != null;
+  }
+
+  GetStaff(){
+    return this.http.get(`${this.BASE_URL+this.endpoint.staff}`)
   }
 }
