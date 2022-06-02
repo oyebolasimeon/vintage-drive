@@ -1,25 +1,25 @@
 @import "../../../../../node_modules/semantic-ui-css/semantic.css";
 
-.main {
+main {
   font-family: -apple-system, 'Open Sans',  BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  width: 100vw;
+  width: 80%;
   min-height: 98vh;
-  margin: auto;
 }
 
 .container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  padding-top: 10vh;
 }
 
 button {
   background-color: green;
   color:white;
   padding: 4px 8px;
-  height:10%;
-  margin-right: 5rem;
+  height: 4vh;
+  width: 12vh;
+  /* margin-right: 5rem; */
   border: 1px solid green;
   border-radius: 5px;
   cursor: pointer;
