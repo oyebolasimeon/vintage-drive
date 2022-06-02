@@ -9,18 +9,26 @@
   <table class="ui celled table">
     <thead>
       <tr>
-        <td>Id</td>
-        <td>Items Ordered</td>
-        <td>Vehicle Model</td>
-        <td>Address</td>
+        <th>Id</th>
+        <th>Vehicle Model</th>
+        <th>Address</th>
+        <th>Orders</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let quote of quotesList, let i=index">
+      <tr *ngFor="let quote of quotesList.payload; let i=index">
         <td>{{ quote.id }}</td>
-        <td>{{ quote.items.item }}</td>
         <td>{{ quote.vehicleName}}</td>
         <td>{{ quote.billingAddress.address }}</td>
+        <td *ngFor="">
+          <button class="popup" (click)="onPop()">
+           <i class="eye icon"></i>
+          </button>
+          <span *ngIf="!popUp ? true: false"
+          class="popuptext">
+            PopUp!
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>

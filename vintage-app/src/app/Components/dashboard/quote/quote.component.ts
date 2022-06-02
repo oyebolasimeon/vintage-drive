@@ -6,9 +6,9 @@ import { AuthService } from 'src/app/service/auth.service';
   templateUrl: './quote.component.html',
   styleUrls: ['./quote.component.css']
 })
-export class QuoteComponent implements OnInit{
-
+export class QuoteComponent implements OnInit {
   quotesList: any;
+  popUp = true;
 
   constructor(private service: AuthService) {
     this.service.QuoteList().subscribe(result => {
@@ -17,6 +17,15 @@ export class QuoteComponent implements OnInit{
    })
   }
 
+  onPop() {
+      if(!this.popUp){
+        this.popUp = true;
+      } else{
+        this.popUp = false;
+      }
+      console.log(this.popUp)
+      return this.popUp;
+  }
   ngOnInit(): void {
   }
 
