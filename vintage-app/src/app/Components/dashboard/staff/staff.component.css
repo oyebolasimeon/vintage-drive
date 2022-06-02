@@ -1,1 +1,28 @@
 @import "../../../../../node_modules/semantic-ui-css/semantic.css";
+
+main {
+  font-family: -apple-system, 'Open Sans',  BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  width: 80%;
+  min-height: 98vh;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+button {
+  background-color: green;
+  color:white;
+  padding: 4px 8px;
+  height: 4vh;
+  width: 12vh;
+  /* margin-right: 5rem; */
+  border: 1px solid green;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 16px;
+  font-size: 14px;
+}
