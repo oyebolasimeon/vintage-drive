@@ -25,7 +25,7 @@ import { InterceptorService } from './Preloader/interceptor.service';
     NavbarComponent,
     DashboardNavbarComponent,
     DashboardSidebarComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
