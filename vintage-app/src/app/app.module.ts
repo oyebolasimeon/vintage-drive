@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { SpinnerComponent } from './Preloader/spinner/spinner.component';
 import { InterceptorService } from './Preloader/interceptor.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 // import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -33,7 +34,8 @@ import { InterceptorService } from './Preloader/interceptor.service';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
     // CommonModule
   ],
   providers: [{
