@@ -1,22 +1,27 @@
-<h3 >
-    
-</h3>
-
-<table>
-    <thead>
+<main>
+    <div class="container">
+    <h1>STAFF LIST</h1>
+      <button>
+        Quote
+        <i class="plus icon"></i>
+      </button>
+  </div>
+    <table class="ui celled table">
+      <thead>
         <tr>
-            <td>id</td>
-            <td>name</td>
-            <td>role</td>
-            <td>status</td>
+          <th>Staff Id</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Status</th>
         </tr>
-    </thead>
+      </thead>
+      <tbody>
     <tbody>
         <tr *ngFor="let staff of stafflist.payload">
             <td>{{staff.id}}</td>
             <td>{{staff.name}}</td>
             <td>{{staff.role}}</td>
-            <td>{{staff.isActive}}</td>
+            <td >{{staff.isActive}}</td>
         </tr>
     </tbody>
 </table>
