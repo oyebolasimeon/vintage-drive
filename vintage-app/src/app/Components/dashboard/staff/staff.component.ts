@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class StaffComponent implements OnInit {
 
   stafflist: any;
+  p: number = 1;
 
   constructor(private service:AuthService) {
       this.service.GetStaff().subscribe(result => {
