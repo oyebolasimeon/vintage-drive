@@ -12,6 +12,8 @@ import { DashboardNavbarComponent } from './Components/dashboard/dashboard-navba
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './service/token-interceptor.service';
+import { SpinnerComponent } from './Preloader/spinner/spinner.component';
+import { InterceptorService } from './Preloader/interceptor.service';
 // import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -22,7 +24,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     PagenotfoundComponent,
     NavbarComponent,
     DashboardNavbarComponent,
-    DashboardSidebarComponent
+    DashboardSidebarComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +37,13 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     // CommonModule
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS, 
+    provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
+    multi: true
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorService,
     multi: true
   }],
   bootstrap: [AppComponent]
