@@ -13,7 +13,7 @@ import { StaffComponent } from './staff/staff.component';
 
 
 @NgModule({
-  declarations: [ ClientComponent, InvoiceComponent, BoardComponent, MyProfileComponent, StaffComponent],
+  declarations: [ ClientComponent, InvoiceComponent, BoardComponent, MyProfileComponent, StaffComponent, QuoteComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule

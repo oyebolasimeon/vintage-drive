@@ -9,36 +9,18 @@
   <table class="ui celled table">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Items Ordered</th>
-        <th>Address</th>
-        <th>Vehicle Model</th>
+        <td>Id</td>
+        <td>Items Ordered</td>
+        <td>Vehicle Model</td>
+        <td>Address</td>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-label="Id">1</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
-      </tr>
-      <tr>
-        <td data-label="Id">2</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
-      </tr>
-      <tr>
-        <td data-label="Id">3</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
-      </tr>
-      <tr>
-        <td data-label="Id">4</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
+      <tr *ngFor="let quote of quotesList, let i=index">
+        <td>{{ quote.id }}</td>
+        <td>{{ quote.items.item }}</td>
+        <td>{{ quote.vehicleName}}</td>
+        <td>{{ quote.billingAddress.address }}</td>
       </tr>
     </tbody>
   </table>

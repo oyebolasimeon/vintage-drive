@@ -10,7 +10,8 @@ export class AuthService {
   endpoint = {
     "staff": "/staffs",
     "vehicle": "/vehicles",
-    "invoice": "/invoices"
+    "invoice": "/invoices",
+    "quote": "/quotes",
   }
 
   BASE_URL = "https://lightup-autocare.herokuapp.com"
@@ -29,5 +30,9 @@ export class AuthService {
 
   GetStaff(){
     return this.http.get(`${this.BASE_URL+this.endpoint.staff}`)
+  }
+
+  QuoteList() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
   }
 }
