@@ -10,7 +10,8 @@ export class AuthService {
   endpoint = {
     "staff": "/staffs",
     "vehicle": "/vehicles",
-    "invoice": "/invoices"
+    "invoice": "/invoices",
+    "signup": "/signup"
   }
 
   BASE_URL = "https://lightup-autocare.herokuapp.com"
@@ -27,7 +28,17 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 
+  //Staff Endpoint
+
   GetStaff(){
     return this.http.get(`${this.BASE_URL+this.endpoint.staff}`)
   }
+  AddNewStaff(staffCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.staff+this.endpoint.signup}`, staffCred)
+  }
+  DeleteStaff(staffCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.staff+"/"+staffCode}`)
+  }
+
+
 }
