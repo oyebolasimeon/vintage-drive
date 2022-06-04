@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/service/auth.service';
+import { ToastrService } from 'ngx-toastr'
 
 
 @Component({
@@ -17,7 +18,7 @@ export class SigninComponent implements OnInit {
     responseData: any;
 
     falock = faLock;
-  constructor( private service:AuthService, private router:Router) { 
+  constructor( private service:AuthService, private router:Router, private toastr: ToastrService) { 
     localStorage.clear();
   }
 
@@ -39,7 +40,10 @@ export class SigninComponent implements OnInit {
             localStorage.setItem('email', this.responseData.payload.email)
             localStorage.setItem('role', this.responseData.payload.role)
             this.router.navigate(['/admin'])
+            this.toastr.success("Login Successful")
         }
+      }, (error) =>{ 
+        this.toastr.error("Bad/Invalid Request Made to Vintage AutoCare")
       })
     } 
   }

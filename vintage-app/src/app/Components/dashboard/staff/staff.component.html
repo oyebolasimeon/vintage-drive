@@ -1,34 +1,78 @@
 <main>
     <div class="container">
     <h1>STAFF LIST</h1>
-      <button>
-        NEW
-        <i class="plus icon"></i>
+      <button (click)="showPostField()" *ngIf="postBtnData">
+        {{postBtnData}}
+        
       </button>
+      
   </div>
-    <table class="ui celled table">
+
+  <div class="staff-form" *ngIf="postField">
+    <form [formGroup]="AddNewStaff" (ngSubmit)="addStaff()">
+        <input type="email" 
+                id="email" 
+                [(ngModel)]="email" 
+                formControlName="email" 
+                placeholder="Enter Email" 
+                required><br>
+        <input type="text" 
+                placeholder="Enter Name"
+                id="username"
+                [(ngModel)]="name" 
+                formControlName="name" 
+                autocomplete="off" 
+                required><br>
+        <input type="password" 
+                placeholder="Enter Password"
+                id="password"
+                [(ngModel)]="password" 
+                formControlName="password"  
+                autocomplete="off" 
+                required><br>
+        <select name="role" 
+                id="role"
+                [(ngModel)]="role" 
+                formControlName="role"  
+                required>
+            <option value="null">Choose Staff Role</option>
+            <option value="admin">Admin</option>
+            <option value="approver">Approver</option>
+            <option value="clerk">Clerk</option>
+        </select>
+        <button style="width: 50%; margin:auto; display: block" 
+                [disabled]="email === '' || password === ''|| role === ''|| name === ''" 
+                type="submit">Add New Staff
+        </button>
+
+    </form>
+  </div>
+
+    <table class="ui celled table" *ngIf="dataField">
       <thead>
         <tr>
           <th>Staff Id</th>
           <th>Name</th>
           <th>Role</th>
           <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
     <tbody>
         <tr *ngFor="let staff of stafflist.payload | paginate: {itemsPerPage: 7, currentPage: p}">
-            <td>{{staff.id}}</td>
+            <td #code>{{staff.id}}</td>
             <td>{{staff.name}}</td>
             <td>{{staff.role}}</td>
             <td >{{staff.isActive}}</td>
+            <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeStaff(code.innerText)">Remove</button></td>
         </tr>
     </tbody>
 </table>
 <<<<<<< HEAD
 =======
 
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
 
 <app-preloader></app-preloader>
 >>>>>>> ab7e787bbde9e58cf286e2c1a3eda5d579b83b79

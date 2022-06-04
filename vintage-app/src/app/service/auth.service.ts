@@ -11,6 +11,7 @@ export class AuthService {
     "staff": "/staffs",
     "vehicle": "/vehicles",
     "invoice": "/invoices",
+    "signup": "/signup"
     "quote": "/quotes",
   }
 
@@ -28,10 +29,18 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 
+  //Staff Endpoint
+
   GetStaff(){
     return this.http.get(`${this.BASE_URL+this.endpoint.staff}`)
   }
-
+  AddNewStaff(staffCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.staff+this.endpoint.signup}`, staffCred)
+  }
+  DeleteStaff(staffCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.staff+"/"+staffCode}`)
+  }
+   //Quote Endpoints
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
   }
