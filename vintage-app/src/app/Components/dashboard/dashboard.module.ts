@@ -11,6 +11,11 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { StaffComponent } from './staff/staff.component';
 import { BoardComponent } from './board/board.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+import { PreloaderComponent } from './preloader/preloader.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from 'src/app/Preloader/interceptor.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,10 +25,23 @@ import { VehicleComponent } from './vehicle/vehicle.component';
                 MyProfileComponent,
                 StaffComponent,
                 InvoiceComponent,
-                VehicleComponent],
+                VehicleComponent,
+                PreloaderComponent,
+                
+              ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
   ]
 })
 export class DashboardModule { }
