@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { TagDefinition } from '@angular/compiler';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { RouteConfigLoadEnd } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -15,13 +17,8 @@ export class StaffComponent implements OnInit {
   dataField = true;
   postBtnData = `Add New Staff `
   email= ''; name = ''; password=''; role='';
-  staffData = { payload : {
-    "name": this.name,
-    "email": this.email,
-    "password": this.password,
-    "role": this.role
-  }
-  }
+  @ViewChild('code')
+  code: 'td' = "td";
   
 
   constructor(private service:AuthService) {
@@ -60,6 +57,15 @@ export class StaffComponent implements OnInit {
       this.service.AddNewStaff(this.AddNewStaff.value).subscribe(result => {
         console.log(result);
       })
+  }
+
+  removeStaff(code: any){
+    this.service.DeleteStaff(code).subscribe(result => {
+      console.log(result)
+      alert(`Client Id${code}`)
+      
+      
+    })
   }
 
 }
