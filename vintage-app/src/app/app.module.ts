@@ -15,6 +15,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
 import { SpinnerComponent } from './Preloader/spinner/spinner.component';
 import { InterceptorService } from './Preloader/interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr'
 // import { CommonModule } from '@angular/common';
 
 @NgModule({
@@ -35,7 +37,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      timeOut: 3000
+    })
     // CommonModule
   ],
   providers: [{
