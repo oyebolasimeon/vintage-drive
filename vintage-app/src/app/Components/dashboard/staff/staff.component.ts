@@ -1,7 +1,8 @@
 import { TagDefinition } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RouteConfigLoadEnd } from '@angular/router';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class StaffComponent implements OnInit {
   code: 'td' = "td";
   
 
-  constructor(private service:AuthService) {
+  constructor(private service:AuthService, private toastr: ToastrService, private router: Router) {
       this.service.GetStaff().subscribe(result => {
         this.stafflist = result;
         console.log(this.stafflist.payload);
@@ -56,15 +57,20 @@ export class StaffComponent implements OnInit {
   addStaff(){
       this.service.AddNewStaff(this.AddNewStaff.value).subscribe(result => {
         console.log(result);
+        this.toastr.success("New Staff Added Successfully")
+      }, (error) => {
+        this.toastr.error(error.message)
       })
   }
 
   removeStaff(code: any){
     this.service.DeleteStaff(code).subscribe(result => {
       console.log(result)
-      alert(`Client Id${code}`)
+      this.toastr.info(`Staff_ID ${code} got deleted`)
+      this.router.navigate(['/admin/staff']);
       
-      
+    }, (error) => {
+      this.toastr.error(error.message)
     })
   }
 
