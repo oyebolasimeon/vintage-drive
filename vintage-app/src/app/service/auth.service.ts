@@ -11,8 +11,10 @@ export class AuthService {
     "staff": "/staffs",
     "vehicle": "/vehicles",
     "invoice": "/invoices",
-    "signup": "/signup"
+    "signup": "/signup",
     "quote": "/quotes",
+    "client": "/clients",
+
   }
 
   BASE_URL = "https://lightup-autocare.herokuapp.com"
@@ -40,6 +42,42 @@ export class AuthService {
   DeleteStaff(staffCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.staff+"/"+staffCode}`)
   }
+
+  // Quote Endpoint
+  GetQuotes() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
+  }
+  AddNewQuote(clientCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, clientCred)
+  }
+  DeleteQuote(clientCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+clientCode}`)
+  }
+
+  // Clients endpoint
+  GetClient() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.client}`)
+  }
+  AddNewClient(clientCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, clientCred)
+  }
+  DeleteClient(clientCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+clientCode}`)
+  }
+  // update operation to do
+
+  // Invoices endpoints
+  GetInvoice() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.invoice}`)
+  }
+  AddNewInvoice(invoiceCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, invoiceCred)
+  }
+  DeleteInvoice(invoiceCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+invoiceCode}`)
+  }
+  // update operation to do
+
    //Quote Endpoints
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
