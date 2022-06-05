@@ -1,1 +1,63 @@
-<p>client works!</p>
+<main>
+  <div class="container">
+  <h1>Customers</h1>
+    <button (click)="showPostField()" *ngIf="postBtnData">
+      {{postBtnData}}
+
+    </button>
+
+</div>
+
+<div class="client-form" *ngIf="postField">
+  <form [formGroup]="AddNewClient" (ngSubmit)="addClient()">
+      <input type="email"
+              id="email"
+              [(ngModel)]="email"
+              formControlName="email"
+              placeholder="Enter Email"
+              required><br>
+      <input type="text"
+              placeholder="Enter Name"
+              id="username"
+              [(ngModel)]="name"
+              formControlName="name"
+              autocomplete="off"
+              required><br>
+      <input type="text"
+              placeholder="Enter Phone Number"
+              id="phone"
+              [(ngModel)]="telephone"
+              formControlName="phone"
+              autocomplete="off"
+              required><br>
+      <button style="width: 50%; margin:auto; display: block"
+              [disabled]="email === '' || telephone === ''|| name === ''"
+              type="submit">Add New Staff
+      </button>
+
+  </form>
+</div>
+
+  <table class="ui celled table" *ngIf="dataField">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone(+234)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tbody>
+      <tr *ngFor="let client of clientList.payload | paginate: {itemsPerPage: 7, currentPage: p}">
+          <td #code>{{client.id}}</td>
+          <td>{{client.name}}</td>
+          <td>{{client.telephone}}</td>
+          <td ><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+      </tr>
+  </tbody>
+</table>
+
+<pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
+
+<app-preloader></app-preloader>

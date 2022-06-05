@@ -1,1 +1,64 @@
-<p>invoice works!</p>
+<main>
+  <div class="container">
+  <h1>Customers</h1>
+    <button (click)="showPostField()" *ngIf="postBtnData">
+      {{postBtnData}}
+
+    </button>
+
+</div>
+
+<div class="invoice-form" *ngIf="postField">
+  <form [formGroup]="AddNewInvoice" (ngSubmit)="addInvoice()">
+      <input type="item"
+              id="text"
+              [(ngModel)]="item"
+              formControlName="item"
+              placeholder="Item Ordered"
+              required><br>
+      <input type="number"
+              placeholder="Enter Unit"
+              id="unit"
+              [(ngModel)]="unit"
+              formControlName="name"
+              autocomplete="off"
+              required><br>
+      <input type="number"
+              placeholder="Enter Phone Number"
+              id="rate"
+              [(ngModel)]="rate"
+              formControlName="phone"
+              autocomplete="off"
+              required><br>
+      <button style="width: 50%; margin:auto; display: block"
+              [disabled]="item === '' || unit === ''|| rate === ''"
+              type="submit">Create Invoice
+      </button>
+
+  </form>
+</div>
+
+  <table class="ui celled table" *ngIf="dataField">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Item Ordered</th>
+        <th>Units</th>
+        <th>Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tbody>
+      <tr *ngFor="let invoice of invoiceList.payload | paginate: {itemsPerPage: 7, currentPage: p}">
+          <td #code>{{invoice.id}}</td>
+          <td>{{invoice.items.item}}</td>
+          <td>{{invoice.items.unit}}</td>
+          <td>{{invoice.items.rate}}</td>
+          <td ><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+      </tr>
+  </tbody>
+</table>
+
+<pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
+
+<app-preloader></app-preloader>
