@@ -14,6 +14,7 @@ export class AuthService {
     "signup": "/signup",
     "quote": "/quotes",
     "client": "/clients",
+
   }
 
   BASE_URL = "https://lightup-autocare.herokuapp.com"
@@ -41,7 +42,6 @@ export class AuthService {
   DeleteStaff(staffCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.staff+"/"+staffCode}`)
   }
-
 
   // Quote Endpoint
   GetQuotes() {
@@ -77,4 +77,9 @@ export class AuthService {
     return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+invoiceCode}`)
   }
   // update operation to do
+
+   //Quote Endpoints
+  QuoteList() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
+  }
 }
