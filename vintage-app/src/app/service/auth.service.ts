@@ -96,12 +96,16 @@ export class AuthService {
   GetServices() {
     return this.http.get(`${this.BASE_URL+this.endpoint.service}`)
   }
-  AddNewService(serviceCred: any){
+  AddNewServices(serviceCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.service}`, serviceCred)
   }
-  DeleteService(serviceCode: any){
+  DeleteServices(serviceCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
   }
+  GetServicesID (servicesID: any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.service+"/"+servicesID}`)
+  }
+
   //vehicle endpoints
   GetVehicle() {
     return this.http.get(`${this.BASE_URL+this.endpoint.vehicle}`)
@@ -109,13 +113,16 @@ export class AuthService {
   AddNewVehicle(vehicleCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.vehicle}`, vehicleCred)
   }
-  DeleteVehicle(vehicleCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCode}`)
+  DeleteVehicle(vehicleCred: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCred}`)
   }
+  GetVehicleID (vehicleID:any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.vehicle+ "/"+vehicleID}`)
+  }
+
    //Quote Endpoints
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
-
 
   }
 }
