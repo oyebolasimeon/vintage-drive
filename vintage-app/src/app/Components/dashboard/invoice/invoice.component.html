@@ -20,18 +20,18 @@
               placeholder="Enter Unit"
               id="unit"
               [(ngModel)]="unit"
-              formControlName="name"
+              formControlName="unit"
               autocomplete="off"
               required><br>
       <input type="number"
               placeholder="Enter Phone Number"
               id="rate"
-              [(ngModel)]="rate"
-              formControlName="phone"
+              [(ngModel)]="totalAmount"
+              formControlName="totalAmount"
               autocomplete="off"
               required><br>
       <button style="width: 50%; margin:auto; display: block"
-              [disabled]="item === '' || unit === ''|| rate === ''"
+              [disabled]="item === '' || unit === ''|| totalAmount === ''"
               type="submit">Create Invoice
       </button>
 

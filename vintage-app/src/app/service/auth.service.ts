@@ -101,7 +101,7 @@ export class AuthService {
   }
   DeleteService(serviceCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
-
+  }
   //vehicle endpoints
   GetVehicle() {
     return this.http.get(`${this.BASE_URL+this.endpoint.vehicle}`)
