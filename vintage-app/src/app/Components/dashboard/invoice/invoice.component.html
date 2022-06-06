@@ -1,1 +1,74 @@
-<p>invoice works!</p>
+<main>
+  <div class="container">
+  <h1>Customers</h1>
+    <button (click)="showPostField()" *ngIf="postBtnData">
+      {{postBtnData}}
+
+    </button>
+
+</div>
+
+<div class="invoice-form" *ngIf="postField">
+  <form [formGroup]="AddNewInvoice" (ngSubmit)="addInvoice()">
+      <input type="item"
+              id="text"
+              [(ngModel)]="item"
+              formControlName="item"
+              placeholder="Item Ordered"
+              required><br>
+      <input type="number"
+              placeholder="Enter Unit"
+              id="unit"
+              [(ngModel)]="unit"
+              formControlName="name"
+              autocomplete="off"
+              required><br>
+      <input type="number"
+              placeholder="Enter Phone Number"
+              id="rate"
+              [(ngModel)]="rate"
+              formControlName="phone"
+              autocomplete="off"
+              required><br>
+      <button style="width: 50%; margin:auto; display: block"
+              [disabled]="item === '' || unit === ''|| rate === ''"
+              type="submit">Create Invoice
+      </button>
+
+  </form>
+</div>
+
+  <table class="ui celled table" *ngIf="dataField">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Client Name</th>
+        <th>Vehicle Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tbody>
+      <tr *ngFor="let invoice of invoiceList.payload | paginate: {itemsPerPage: 7, currentPage: p}">
+          <td #code>{{invoice.id}}</td>
+          <td>{{invoice.clientName}}</td>
+          <td>{{invoice.vehicleName}}</td>
+          <!-- <td *ngFor="let invoiceRate of invoice.items">{{invoiceRate.rate}}</td> -->
+          <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" id="myBtn">View Details</button><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+      </tr>
+  </tbody>
+</table>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+<pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
+
+<app-preloader></app-preloader>

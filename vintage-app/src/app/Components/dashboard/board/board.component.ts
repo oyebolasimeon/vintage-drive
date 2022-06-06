@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import  { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-board',
@@ -7,7 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+  fauser = faUserCircle;
+  totalClient: any;
+  totalStaff: any;
+  totalQuote: any;
+  totalVehicle: any;
+
+  constructor(private service: AuthService) {
+
+      this.service.GetStaff().subscribe(result => {
+          this.totalStaff = result
+          console.log(this.totalClient)
+      })
+
+      this.service.GetClient().subscribe(result => {
+        this.totalClient = result
+      })
+
+      this.service.GetQuotes().subscribe(result => {
+        this.totalQuote = result
+      })
+
+      this.service.GetVehicle().subscribe(result => {
+        this.totalVehicle = result
+      })
+
+   }
 
   ngOnInit(): void {
   }
