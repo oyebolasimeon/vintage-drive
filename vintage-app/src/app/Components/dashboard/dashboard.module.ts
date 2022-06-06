@@ -26,7 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
                 StaffComponent,
                 InvoiceComponent,
                 VehicleComponent,
-                PreloaderComponent,
+                PreloaderComponent
                 
               ],
   imports: [

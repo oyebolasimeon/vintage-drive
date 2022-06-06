@@ -85,4 +85,15 @@ export class AuthService {
     return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+invoiceCode}`)
   }
   // update operation to do
+
+  //vehicle endpoints
+  GetVehicle() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.vehicle}`)
+  }
+  AddNewVehicle(vehicleCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.vehicle}`, vehicleCred)
+  }
+  DeleteVehicle(vehicleCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCode}`)
+  }
 }
