@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { post } from 'jquery';
 
@@ -16,8 +16,8 @@ export class AuthService {
     "client": "/clients",
   }
 
-  BASE_URL = "https://lightup-autocare.herokuapp.com"
-  LOGIN_URL = this.BASE_URL + this.endpoint.staff + "/login";
+  private BASE_URL = "https://lightup-autocare.herokuapp.com"
+  private LOGIN_URL = this.BASE_URL + this.endpoint.staff + "/login";
 
 
   constructor(private http: HttpClient) { }
@@ -40,6 +40,14 @@ export class AuthService {
   }
   DeleteStaff(staffCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.staff+"/"+staffCode}`)
+  }
+  UpdateStaff(staffData: any){
+    const httpOpts = {
+      headers : new HttpHeaders ({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put(`${this.BASE_URL+this.endpoint.staff+"/"+staffData.id}`, staffData, httpOpts)
   }
 
 

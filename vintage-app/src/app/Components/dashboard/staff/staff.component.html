@@ -65,7 +65,8 @@
             <td>{{staff.name}}</td>
             <td>{{staff.role}}</td>
             <td >{{staff.isActive}}</td>
-            <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeStaff(code.innerText)">Remove</button></td>
+            <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" (click)="updateStaff(code.innerText)">Update</button>
+              <button style="margin-top: 0; margin-right: 0; background-color: red; border: none;" (click)="removeStaff(code.innerText)">Remove</button></td>
         </tr>
     </tbody>
 </table>
