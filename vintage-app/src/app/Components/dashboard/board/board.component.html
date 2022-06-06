@@ -1,1 +1,20 @@
-<p>board works!</p>
+<section class="board">
+    <div class="card-box">
+        <div class="client-card">
+            <i class="fa fa-4x fa-user-circle" style="color: #fff; margin: 4vh ;"></i><span style="color: #fff; font-size:24px;">CLIENTS</span>
+            <h3  style="color: #fff; text-align: center; font-size: 4vh;"> {{totalClient.payload.length}} </h3>
+        </div>
+        <div class="staff-card">
+            <i class="fa fa-4x fa-clipboard-user" style="color: #fff; margin: 4vh ;"></i><span style="color: #fff; font-size:24px;">STAFFS</span>
+            <h3  style="color: #fff; text-align: center; font-size: 4vh;">{{totalStaff.payload.length}}</h3>
+        </div>
+        <div class="vehicle-card">
+            <i class="fa fa-4x fa-solid fa-cars" style="color: #fff; margin: 3vh ;"></i><span style="color: #fff; font-size:24px;">VEHICLES</span>
+            <h3  style="color: #fff; text-align: center; font-size: 4vh;">{{totalVehicle.payload.length}}</h3>
+        </div>
+        <div class="quote-card">
+            <i class="fa fa-4x fa-pen" style="color: #fff; margin: 4vh ;"></i><span style="color: #fff; font-size:24px;">QUOTES</span>
+            <h3  style="color: #fff; text-align: center; font-size: 4vh;">{{totalQuote.payload.length}}</h3>
+        </div>
+    </div>
+</section>

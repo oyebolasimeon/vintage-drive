@@ -42,7 +42,8 @@ import { ToastrModule } from 'ngx-toastr'
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
-      timeOut: 3000
+      timeOut: 3000,
+      progressBar: true
     })
     // CommonModule
   ],
