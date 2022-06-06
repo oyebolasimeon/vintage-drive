@@ -19,10 +19,28 @@ button {
   padding: 4px 8px;
   height: 4vh;
   width: 12vh;
-  /* margin-right: 5rem; */
   border: 1px solid green;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 16px;
   font-size: 14px;
 }
+
+/* Pop-up feature */
+
+.popup {
+  margin: 0;
+  text-align: center;
+  padding:2px 3px;
+  width: 6vh;
+  height:2vh;
+}
+
+.popuptext {
+  color:green;
+  border-radius: 5px;
+  padding: 2px;
+  margin-left: 4px;
+}
+
+

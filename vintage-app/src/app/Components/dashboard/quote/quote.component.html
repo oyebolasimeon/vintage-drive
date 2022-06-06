@@ -10,35 +10,25 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Items Ordered</th>
-        <th>Address</th>
         <th>Vehicle Model</th>
+        <th>Address</th>
+        <th>Orders</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td data-label="Id">1</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
-      </tr>
-      <tr>
-        <td data-label="Id">2</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
-      </tr>
-      <tr>
-        <td data-label="Id">3</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
-      </tr>
-      <tr>
-        <td data-label="Id">4</td>
-        <td data-label="Items">Side Mirror</td>
-        <td data-label="Address">No 34 lekki street</td>
-        <td data-label="Vehicle">G-wagon</td>
+      <tr *ngFor="let quote of quotesList.payload; let i=index">
+        <td>{{ quote.id }}</td>
+        <td>{{ quote.vehicleName}}</td>
+        <td>{{ quote.billingAddress.address }}</td>
+        <td *ngFor="">
+          <button class="popup" (click)="onPop()">
+           <i class="eye icon"></i>
+          </button>
+          <span *ngIf="!popUp ? true: false"
+          class="popuptext">
+            PopUp!
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>
