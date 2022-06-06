@@ -106,7 +106,6 @@ export class AuthService {
     return this.http.get(`${this.BASE_URL+this.endpoint.service+"/"+servicesID}`)
   }
 
-
   //vehicle endpoints
   GetVehicle() {
     return this.http.get(`${this.BASE_URL+this.endpoint.vehicle}`)

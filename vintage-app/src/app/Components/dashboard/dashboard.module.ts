@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ClientComponent } from './client/client.component';
 import { InvoiceComponent } from './invoice/invoice.component';
-import { ServicesComponent } from './services/services.component';
 import { QuoteComponent } from './quote/quote.component';
 
 import { MyProfileComponent } from './my-profile/my-profile.component';
@@ -16,6 +15,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from 'src/app/Preloader/interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceComponent } from './service/service.component';
 
 
 @NgModule({
@@ -26,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
                 StaffComponent,
                 InvoiceComponent,
                 VehicleComponent,
-                PreloaderComponent
+                PreloaderComponent,
+                ServiceComponent
                 
               ],
   imports: [
