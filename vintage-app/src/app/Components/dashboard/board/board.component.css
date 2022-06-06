@@ -1,0 +1,44 @@
+.board{
+    width: 90%;
+    height: 90vh;
+    align-items: center;
+    /* background-color: green; */
+    /* display: flex; */
+}
+.board .card-box{
+    display: flex;
+}
+.board .card-box .client-card{
+    flex: 1;
+    width: 5vh;
+    min-height: 30vh;
+    margin-left: 2vh;
+    background-color: black; margin: auto;
+    border: none;
+    border-radius: 15px 115px;
+}
+.board .card-box .vehicle-card{
+    flex: 1;
+    width: 5vh;
+    margin: auto;
+    min-height: 30vh;
+    background-color: blue;
+    margin-right: 2vh; border-radius: 15px 115px;
+}
+.board .card-box .staff-card{
+    flex: 1;
+    width: 100%;
+    margin: auto;
+    min-height: 30vh;
+    background-color:red;
+    margin-left: 2vh;
+    margin-right: 2vh; border-radius: 15px 115px;
+}
+.board .card-box .quote-card{
+    flex: 1;
+    width: 100%;
+    margin: auto;
+    min-height: 30vh;
+    margin-right: 2vh;
+    background-color: yellow; border-radius: 15px 115px;
+}

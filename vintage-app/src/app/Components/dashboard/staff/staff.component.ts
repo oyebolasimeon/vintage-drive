@@ -74,5 +74,9 @@ export class StaffComponent implements OnInit {
     })
   }
 
+  updateStaff(code: any){
+    
+  }
+
 }
 
