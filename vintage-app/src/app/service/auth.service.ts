@@ -101,7 +101,7 @@ export class AuthService {
   }
   DeleteService(serviceCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
-
+  }
   //vehicle endpoints
   GetVehicle() {
     return this.http.get(`${this.BASE_URL+this.endpoint.vehicle}`)
@@ -109,14 +109,34 @@ export class AuthService {
   AddNewVehicle(vehicleCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.vehicle}`, vehicleCred)
   }
-  DeleteVehicle(vehicleCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCode}`)
+  DeleteVehicle(vehicleCred: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCred}`)
   }
    //Quote Endpoints
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
 
-
   }
+}
+
+}
+function GetVehicle() {
+  throw new Error('Function not implemented.');
+}
+
+function AddNewVehicle(vehicleCred: any, any: any) {
+  throw new Error('Function not implemented.');
+}
+
+function DeleteVehicle(vehicleCode: any, any: any) {
+  throw new Error('Function not implemented.');
+}
+
+function QuoteList() {
+  throw new Error('Function not implemented.');
+}
+
+function vehicleCred(vehicleCred: any, any: any) {
+  throw new Error('Function not implemented.');
 }
 
