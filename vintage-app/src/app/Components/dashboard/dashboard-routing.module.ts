@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { QuoteComponent } from './quote/quote.component';
-import { ServicesComponent } from './services/services.component';
+import { ServiceComponent } from './service/service.component';
 import { StaffComponent } from './staff/staff.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 
@@ -17,11 +17,11 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     children: [
-      { path: 'client', component: ClientComponent },
+      { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
       { path: 'invoice', component: InvoiceComponent, canActivate:[AuthGuard] },
       { path: 'home', component: BoardComponent, canActivate:[AuthGuard] },
       { path: 'quote', component: QuoteComponent, canActivate:[AuthGuard] },
-      { path: 'services', component: ServicesComponent, canActivate:[AuthGuard] },
+      { path: 'services', component: ServiceComponent, canActivate:[AuthGuard] },
       { path: 'vehicle', component: VehicleComponent, canActivate:[AuthGuard] },
       { path: 'my-profile', component: MyProfileComponent, canActivate:[AuthGuard] },
       { path: 'staff', component: StaffComponent, canActivate:[AuthGuard] },

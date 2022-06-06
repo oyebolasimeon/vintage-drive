@@ -1,0 +1,53 @@
+<main>
+    <div class="container">
+    <h1>SERVICE LIST</h1>
+      <button (click)="showPostField()" *ngIf="postBtnData">
+        {{postBtnData}}
+        
+      </button>
+      
+  </div>
+
+  <div class="staff-form" *ngIf="postField">
+    <form [formGroup]="AddNewService" (ngSubmit)="addService()">
+          
+          <input type="text" 
+                  placeholder="Enter Name"
+                  id="username"
+                  [(ngModel)]="name" 
+                  formControlName="name" 
+                  autocomplete="off" 
+                  required><br>
+          <button style="width: 50%; margin:auto; display: block" 
+                  [disabled]="name === ''" 
+                  type="submit">Add New Staff
+          </button>
+
+    </form>
+  </div>
+
+    <table class="ui celled table" *ngIf="dataField">
+      <thead>
+        <tr>
+          <th>Service Id</th>
+          <th>Name</th>
+          <th>Creation Time</th>
+          <th>Last Updated At</th>
+        </tr>
+      </thead>
+      <tbody>
+    <tbody>
+        <tr *ngFor="let service of servicelist.payload | paginate: {itemsPerPage: 7, currentPage: p}">
+            <td #code>{{service.id}}</td>
+            <td>{{service.name}}</td>
+            <td>{{service.createdOn}}</td>
+            <td >{{service.updatedOn}}</td>
+            <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" (click)="updateService(code.innerText)">Update</button>
+              <button style="margin-top: 0; margin-right: 0; background-color: red; border: none;" (click)="removeService(code.innerText)">Remove</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
+
+<app-preloader></app-preloader>

@@ -38,11 +38,11 @@
               placeholder="Enter Phone Number"
               id="phone"
               [(ngModel)]="telephone"
-              formControlName="phone"
+              formControlName="telephone"
               autocomplete="off"
               required><br>
       <button style="width: 50%; margin:auto; display: block"
-              [disabled]="email === '' || telephone === ''|| name === ''"
+              [disabled]="email === '' || telephone === '' ||  name === ''"
               type="submit">Register Client
       </button>
 
@@ -64,8 +64,8 @@
           <td #code>{{client.id}}</td>
           <td>{{client.name}}</td>
           <td>{{client.telephone}}</td>
-          <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeClient(code.innerText)">Remove</button>
-            <button style="margin-top: 0; background-color: green; border: none;" (click)="showID(code.innerText)">Update</button>
+          
+          <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" (click)="showID(code.innerText)">Update</button><button style="margin-top: 0; background-color: red; border: none;" (click)="removeClient(code.innerText)">Remove</button>
           </td>
       </tr>
   </tbody>

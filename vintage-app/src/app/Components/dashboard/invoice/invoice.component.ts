@@ -17,7 +17,7 @@ export class InvoiceComponent implements OnInit {
   postField = false;
   dataField = true;
   postBtnData = `Add New Invoice`
-  item= ''; rate = ''; unit='';
+  item= ''; totalAmount = ''; unit='';
   @ViewChild('code')
   code: 'td' = "td";
 
@@ -31,9 +31,9 @@ export class InvoiceComponent implements OnInit {
    }
 
    AddNewInvoice = new FormGroup({
-    email: new FormControl(" ", Validators.required),
-    name: new FormControl(" ", Validators.required),
-    telephone: new FormControl(" ", Validators.required),
+    item: new FormControl([], Validators.required),
+    unit: new FormControl(" ", Validators.required),
+    totalAmount: new FormControl(" ", Validators.required),
    })
 
   ngOnInit(): void {
@@ -47,14 +47,20 @@ export class InvoiceComponent implements OnInit {
     } else{
       this.postField = false
       this.dataField = true
-      this.postBtnData = "Add New Staff"
+      this.postBtnData = "Add New Invoice"
     }
 
     return this.postField;
   }
 
   addInvoice(){
-      this.service.AddNewInvoice(this.AddNewInvoice.value).subscribe(result => {
+    let payload = this.AddNewInvoice.value
+      
+        
+      
+      
+    console.log(payload)
+      this.service.AddNewInvoice(payload).subscribe(result => {
         console.log(result);
         this.toastr.success("New Invoice Added Successfully")
       }, (error) => {
