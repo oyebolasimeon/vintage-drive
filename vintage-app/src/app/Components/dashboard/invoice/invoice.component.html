@@ -1,6 +1,6 @@
 <main>
   <div class="container">
-  <h1>Customers</h1>
+  <h1>Transactions</h1>
     <button (click)="showPostField()" *ngIf="postBtnData">
       {{postBtnData}}
 
@@ -54,7 +54,7 @@
           <td>{{invoice.items.item}}</td>
           <td>{{invoice.items.unit}}</td>
           <td>{{invoice.items.rate}}</td>
-          <td ><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+          <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeInvoice(code.innerText)">Remove</button></td>
       </tr>
   </tbody>
 </table>

@@ -1,4 +1,15 @@
 <main>
+  <div class="client-input">
+    <section class="client-input" [ngClass]="showID" *ngIf="postRow">
+      <form>
+        <h2>Customer Info</h2>
+        <label>Name:</label>
+        <input type="text" placeholder="Enter Name: "><br>
+        <label>Phone:</label>
+        <input type="text" placeholder="Enter telephone number: "><br><br>
+      </form>
+      </section>
+  </div>
   <div class="container">
   <h1>Customers</h1>
     <button (click)="showPostField()" *ngIf="postBtnData">
@@ -32,7 +43,7 @@
               required><br>
       <button style="width: 50%; margin:auto; display: block"
               [disabled]="email === '' || telephone === ''|| name === ''"
-              type="submit">Add New Staff
+              type="submit">Register Client
       </button>
 
   </form>
@@ -53,7 +64,9 @@
           <td #code>{{client.id}}</td>
           <td>{{client.name}}</td>
           <td>{{client.telephone}}</td>
-          <td ><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+          <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeClient(code.innerText)">Remove</button>
+            <button style="margin-top: 0; background-color: green; border: none;" (click)="showID(code.innerText)">Update</button>
+          </td>
       </tr>
   </tbody>
 </table>
