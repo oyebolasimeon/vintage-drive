@@ -1,6 +1,6 @@
 <main>
   <div class="container">
-  <h1>Customers</h1>
+  <h1>Transactions</h1>
     <button (click)="showPostField()" *ngIf="postBtnData">
       {{postBtnData}}
 
@@ -53,8 +53,15 @@
           <td #code>{{invoice.id}}</td>
           <td>{{invoice.clientName}}</td>
           <td>{{invoice.vehicleName}}</td>
-          <!-- <td *ngFor="let invoiceRate of invoice.items">{{invoiceRate.rate}}</td> -->
-          <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" id="myBtn">View Details</button><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+          <td>{{invoice.items.rate}}</td>
+    <!-- <td *ngFor="let invoiceRate of invoice.items">{{invoiceRate.rate}}</td> -->
+        <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" id="myBtn">View Details</button>
+          <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeInvoice(code.innerText)">Remove</button></td>
+<!-- 
+          
+          
+          
+            <button style="margin-top: 0; background-color: red; border: none;">Remove</button></td> -->
       </tr>
   </tbody>
 </table>

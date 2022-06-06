@@ -20,6 +20,7 @@ clientList: any;
   email= ''; name = ''; telephone='';
   @ViewChild('code')
   code: 'td' = "td";
+  postRow :boolean | any = false;
 
 
   constructor(private service:AuthService, private toastr: ToastrService, private router: Router) {
@@ -73,4 +74,11 @@ clientList: any;
     })
   }
 
+  showID(value: any) {
+    this.service.GetClientID(value).subscribe(result => {
+      console.log(result);
+      this.postRow = result;
+      return this.postRow = true;
+    })
+  }
 }

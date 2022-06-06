@@ -14,6 +14,7 @@ export class AuthService {
     "signup": "/signup",
     "quote": "/quotes",
     "client": "/clients",
+    "service": "/personalisedservices"
 
   }
 
@@ -55,12 +56,14 @@ export class AuthService {
   GetQuotes() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
   }
-  AddNewQuote(clientCred: any){
-    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, clientCred)
+  AddNewQuote(quoteCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.quote}`, quoteCred)
   }
-  DeleteQuote(clientCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+clientCode}`)
+  DeleteQuote(quoteCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.quote+"/"+quoteCode}`)
   }
+// fix UI
+
 
   // Clients endpoint
   GetClient() {
@@ -72,6 +75,9 @@ export class AuthService {
   DeleteClient(clientCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+clientCode}`)
   }
+  GetClientID(clientID: any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.client+"/"+clientID}`)
+  }
   // update operation to do
 
   // Invoices endpoints
@@ -79,12 +85,22 @@ export class AuthService {
     return this.http.get(`${this.BASE_URL+this.endpoint.invoice}`)
   }
   AddNewInvoice(invoiceCred: any){
-    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, invoiceCred)
+    return this.http.post(`${this.BASE_URL+this.endpoint.invoice}`, invoiceCred)
   }
   DeleteInvoice(invoiceCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+invoiceCode}`)
+    return this.http.delete(`${this.BASE_URL+this.endpoint.invoice+"/"+invoiceCode}`)
   }
   // update operation to do
+
+  // Services Endpoint
+  GetServices() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.service}`)
+  }
+  AddNewService(serviceCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.service}`, serviceCred)
+  }
+  DeleteService(serviceCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
 
   //vehicle endpoints
   GetVehicle() {
@@ -100,5 +116,7 @@ export class AuthService {
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
 
+
   }
 }
+
