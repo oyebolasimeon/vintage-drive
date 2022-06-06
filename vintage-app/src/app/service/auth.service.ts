@@ -95,7 +95,7 @@ export class AuthService {
   }
   DeleteVehicle(vehicleCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCode}`)
-
+  }
    //Quote Endpoints
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
