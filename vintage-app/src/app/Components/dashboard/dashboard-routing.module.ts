@@ -14,7 +14,7 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 
 const routes: Routes = [
   {
-    path: '', 
+    path: '',
     component: HomeComponent,
     children: [
       { path: 'client', component: ClientComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: PagenotfoundComponent}
     ]
-  } 
+  }
 ];
 
 @NgModule({

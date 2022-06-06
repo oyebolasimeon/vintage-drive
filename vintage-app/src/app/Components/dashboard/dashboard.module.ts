@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ClientComponent } from './client/client.component';
 import { InvoiceComponent } from './invoice/invoice.component';
-import { QuoteComponent } from './quote/quote.component';
 import { ServicesComponent } from './services/services.component';
+import { QuoteComponent } from './quote/quote.component';
 
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { StaffComponent } from './staff/staff.component';
