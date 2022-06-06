@@ -1,1 +1,89 @@
-<p>vehicle works!</p>
+<main>
+  <div class="Vehicle-input">
+    <section class="Vehicle-input" [ngClass]="showID" *ngIf="postRow">
+      <form>
+        <h2>Vehicle Info</h2>
+        <label>Name:</label>
+        <input type="text" placeholder="Enter Name: "><br>
+        <label>Vehicle Name:</label>
+        <input type="text" placeholder="Enter Vehicle Name: "><br>
+        <label>Chassis:</label>
+        <input type="text" placeholder="Enter Chassis: "><br>
+        <label>Model:</label>
+        <input type="text" placeholder="Enter Model: "><br><br>
+      </form>
+      </section>
+  </div>
+  <div class="container">
+  <h1>Vehicles</h1>
+    <button (click)="showPostField()" *ngIf="postBtnData">
+      {{postBtnData}}
+
+    </button>
+
+</div>
+
+<div class="vehicle-form" *ngIf="postField">
+  <form [formGroup]="AddNewVehicle" (ngSubmit)="addVehicle()">
+        <input type="number"
+              id="id"
+              [(ngModel)]="id"
+              formControlName="id"
+              placeholder="Enter ID"
+              required><br>
+      <input type="text"
+              placeholder="Enter Vehicle Name"
+              id="vehicleName"
+              [(ngModel)]="vehicleName"
+              formControlName="vehicleName"
+              autocomplete="off"
+              required><br>
+      <input type="text"
+              placeholder="Enter Model"
+              id="model"
+              [(ngModel)]="model"
+              formControlName="model"
+              autocomplete="off"
+              required><br>
+      <input type="number"
+              placeholder="Enter Phone Chassis Number"
+              id="chassis"
+              [(ngModel)]="chassis"
+              formControlName="chassis"
+              autocomplete="off"
+              required><br>
+      <button style="width: 50%; margin:auto; display: block"
+              [disabled]="id ==='' || vehicleName === '' || model === '' || chassis=== '' "
+              type="submit">Register Vehicle
+      </button>
+
+  </form>
+</div>
+
+  <table class="ui celled table" *ngIf="dataField">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Vehicle Name</th>
+        <th>Chassis</th>
+        <th>Model</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tbody>
+      <tr *ngFor="let vehicle of vehicleList.payload | paginate: {itemsPerPage: 7, currentPage: p}">
+          <td #code>{{vehicle.clientId}}</td>
+          <td>{{vehicle.vehicleName}}</td>
+          <td>{{vehicle.chassis}}</td>
+          <td>{{vehicle.model}}</td>
+          <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeVehicle(code.innerText)">Remove</button>
+            <button style="margin-top: 0; background-color: green; border: none;" (click)="showID(code.innerText)">Update</button>
+          </td>
+      </tr>
+  </tbody>
+</table>
+
+<pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
+
+<app-preloader></app-preloader>

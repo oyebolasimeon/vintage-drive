@@ -96,12 +96,17 @@ export class AuthService {
   GetServices() {
     return this.http.get(`${this.BASE_URL+this.endpoint.service}`)
   }
-  AddNewService(serviceCred: any){
+  AddNewServices(serviceCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.service}`, serviceCred)
   }
-  DeleteService(serviceCode: any){
+  DeleteServices(serviceCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
   }
+  GetServicesID (servicesID: any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.service+"/"+servicesID}`)
+  }
+
+
   //vehicle endpoints
   GetVehicle() {
     return this.http.get(`${this.BASE_URL+this.endpoint.vehicle}`)
@@ -112,31 +117,14 @@ export class AuthService {
   DeleteVehicle(vehicleCred: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCred}`)
   }
+  GetVehicleID (vehicleID:any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.vehicle+ "/"+vehicleID}`)
+  }
+
    //Quote Endpoints
   QuoteList() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
 
   }
-}
-
-}
-function GetVehicle() {
-  throw new Error('Function not implemented.');
-}
-
-function AddNewVehicle(vehicleCred: any, any: any) {
-  throw new Error('Function not implemented.');
-}
-
-function DeleteVehicle(vehicleCode: any, any: any) {
-  throw new Error('Function not implemented.');
-}
-
-function QuoteList() {
-  throw new Error('Function not implemented.');
-}
-
-function vehicleCred(vehicleCred: any, any: any) {
-  throw new Error('Function not implemented.');
 }
 
