@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class VehicleComponent implements OnInit {
 
   vehicleList: any;
+  clientList: any;
   p: number = 1;
   postField = false;
   dataField = true;
@@ -28,11 +29,16 @@ export class VehicleComponent implements OnInit {
         this.vehicleList = result;
         console.log(this.vehicleList.payload);
 
-      } )
+      } );
+
+      this.service.GetClient().subscribe(result => {
+        this.clientList = result;
+        console.log(this.clientList.payload);
+      })
    }
 
    AddNewVehicle = new FormGroup({
-    id: new FormControl(" ", Validators.required),
+    clientId: new FormControl(" ", Validators.required),
     vehicleName: new FormControl(" ", Validators.required),
     model: new FormControl(" ", Validators.required),
     chassis: new FormControl(" ", Validators.required),
