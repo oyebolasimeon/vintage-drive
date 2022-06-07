@@ -57,3 +57,12 @@
   text-align: left;
   width: 100%;
 }
+
+.table-comp {
+  width: 90%;
+}
+
+table {
+  width: 100%;
+  height:90%;
+}
