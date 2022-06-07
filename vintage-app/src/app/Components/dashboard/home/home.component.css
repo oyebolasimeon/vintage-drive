@@ -3,7 +3,8 @@
     display: grid;
     align-items: center;
     margin: auto;
+    margin-top: 0;
     min-height: 94vh;
     /* background-color: rgb(19, 18, 18); */
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 20% 80%;
 }

@@ -28,7 +28,7 @@ import { ServiceComponent } from './service/service.component';
                 VehicleComponent,
                 PreloaderComponent,
                 ServiceComponent
-                
+
               ],
   imports: [
     CommonModule,
