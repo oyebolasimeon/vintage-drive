@@ -96,10 +96,10 @@ export class AuthService {
   GetServices() {
     return this.http.get(`${this.BASE_URL+this.endpoint.service}`)
   }
-  AddNewServices(serviceCred: any){
+  AddNewService(serviceCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.service}`, serviceCred)
   }
-  DeleteServices(serviceCode: any){
+  DeleteService(serviceCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
   }
   GetServicesID (servicesID: any) {
