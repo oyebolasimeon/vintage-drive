@@ -9,29 +9,86 @@
 </div>
 
 <div class="invoice-form" *ngIf="postField">
-  <form [formGroup]="AddNewInvoice" (ngSubmit)="addInvoice()">
-      <input type="item"
-              id="text"
-              [(ngModel)]="item"
-              formControlName="item"
-              placeholder="Item Ordered"
+  <form [formGroup]="AddNewInvoice" (ngSubmit)="onSubmit()">
+
+    <input type="text"
+              id="clientName"
+              formControlName="clientName"
+              placeholder="Enter Client Name"
+              required>
+
+              <input type="text"
+              id="vehicleName"
+              formControlName="vehicleName"
+              placeholder="Enter Vehicle Name"
+              required>
+
+      <div formGroupName="billingAddress" >
+
+        
+
+        <input type="text"
+              id="repName"
+              formControlName="repName"
+              placeholder="Enter Rep Name"
+              required>
+
+              <input type="text"
+              id="address"
+              formControlName="address"
+              placeholder="Enter Address"
+              required>
+
+              <input type="text"
+              id="city"
+              formControlName="city"
+              placeholder="Enter City Name"
               required><br>
-      <input type="number"
-              placeholder="Enter Unit"
-              id="unit"
-              [(ngModel)]="unit"
-              formControlName="unit"
-              autocomplete="off"
+
+              <input type="text"
+              id="postalCode"
+              formControlName="postalCode"
+              placeholder="Enter Postal Code"
               required><br>
-      <input type="number"
-              placeholder="Enter Phone Number"
-              id="rate"
-              [(ngModel)]="totalAmount"
-              formControlName="totalAmount"
-              autocomplete="off"
+
+              <input type="text"
+              id="state"
+              formControlName="state"
+              placeholder="Enter State"
               required><br>
+
+      </div>
+
+      <div formGroupName="items" >
+
+        <input type="text"
+        id="text"
+        [(ngModel)]="item"
+        formControlName="item"
+        placeholder="Item Ordered"
+        required><br>
+
+<input type="number"
+        placeholder="Enter Unit"
+        id="unit"
+        [(ngModel)]="units"
+        formControlName="unit"
+        autocomplete="off"
+        required><br>
+
+<input type="number"
+        placeholder="Enter Rate"
+        id="rate"
+        [(ngModel)]="rates"
+        formControlName="rate"
+        autocomplete="off"
+        required><br>
+      </div>
+
+
+      
       <button style="width: 50%; margin:auto; display: block"
-              [disabled]="item === '' || unit === ''|| totalAmount === ''"
+              [disabled]="item === '' || units === ''|| rates === ''"
               type="submit">Create Invoice
       </button>
 
@@ -53,10 +110,10 @@
           <td #code>{{invoice.id}}</td>
           <td>{{invoice.clientName}}</td>
           <td>{{invoice.vehicleName}}</td>
-          <td>{{invoice.items.rate}}</td>
+          <!-- <td>{{invoice.items.rate}}</td> -->
     <!-- <td *ngFor="let invoiceRate of invoice.items">{{invoiceRate.rate}}</td> -->
         <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" id="myBtn">View Details</button>
-          <td ><button style="margin-top: 0; background-color: red; border: none;" (click)="removeInvoice(code.innerText)">Remove</button></td>
+          <button style="margin-top: 0; background-color: red; border: none;" (click)="removeInvoice(code.innerText)">Remove</button></td>
 <!-- 
           
           
