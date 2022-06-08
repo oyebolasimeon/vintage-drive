@@ -27,6 +27,15 @@ button {
   font-size: 14px;
 }
 
+section i {
+  color:red;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
 .client-form{
     width: 100%;
     margin: auto;
@@ -73,12 +82,12 @@ button {
     width:50%;
   }
 .client-input, section {
-  color:white;
+  color:black;
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  background-color:rgb(160, 160, 160);
-  border: solid 2px rgb(160, 160, 160);
+  background-color:white;
+  border: solid 2px white;
   border-radius: 5px;
   margin-top: 5px;
 }

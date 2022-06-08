@@ -81,4 +81,8 @@ clientList: any;
       return this.postRow = true;
     })
   }
+  onCancel () {
+    console.log('popup closed!');
+    return this.postRow = false;
+  }
 }

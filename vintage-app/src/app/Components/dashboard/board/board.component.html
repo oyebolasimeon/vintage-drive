@@ -12,30 +12,37 @@
     <div class="card-box">
         <div class="client-card">
             <i class="fa fa-2x fa-user-circle" style="color:black; margin: 1.5vh ;"></i>
-            Clients
+             <a style="text-decoration:none; color:black;" [routerLink]="['../client']">Clients</a>
             <h3>{{totalClient.payload.length}} </h3>
         </div>
         <div class="staff-card">
             <i class="fa fa-2x fa-clipboard-user" style="color:black; margin: 1.5vh ;"></i>
-            Staffs
+            <a style="text-decoration:none; color:black;" [routerLink]="['../staff']">Staffs</a>
             <h3>{{totalStaff.payload.length}}</h3>
         </div>
         <div class="vehicle-card">
             <i class="fa fa-2x fa-cars" style="color: black; margin: 1.5vh ;"></i>
-            Vehicles
+            <a style="text-decoration:none; color:black;" [routerLink]="['../vehicle']">Vehicles</a>
             <h3>{{totalVehicle.payload.length}}</h3>
         </div>
         <div class="quote-card">
             <i class="fa fa-2x fa-pen" style="color: black; margin: 1.5vh ;"></i>
-             Quotes
+             <a style="text-decoration:none; color:black;" [routerLink]="['../quote']">Quotes</a>
             <h3>{{totalQuote.payload.length}}</h3>
         </div>
     </div>
 
-    <!-- table -->
-    <div class="table-comp">
-      <table></table>
+    <div class="map">
+      <h1>Services made at every corner of Lagos!</h1>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d166082.7951157053!2d3.3866809601594956!3d6.5912796232449855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sng!4v1654668088782!5m2!1sen!2sng"
+      width="80%"
+      object-fit="cover"
+      border-radius="10px 10px"
+      height="100%"
+      style="border:0;"
+      allowfullscreen="false"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
-
-
 </section>
