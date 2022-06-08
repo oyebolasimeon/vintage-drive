@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class BoardComponent implements OnInit {
 
+  name = localStorage.getItem('name');
   fauser = faUserCircle;
   totalClient: any;
   totalStaff: any;

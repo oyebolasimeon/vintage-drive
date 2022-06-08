@@ -2,6 +2,7 @@
   <div class="client-input">
     <section class="client-input" [ngClass]="showID" *ngIf="postRow">
       <form>
+        <i class="fa fa-2x fa-ban" (click)="onCancel()" aria-hidden="true"></i>
         <h2>Customer Info</h2>
         <label>Name:</label>
         <input type="text" placeholder="Enter Name: "><br>
@@ -64,7 +65,7 @@
           <td #code>{{client.id}}</td>
           <td>{{client.name}}</td>
           <td>{{client.telephone}}</td>
-          
+
           <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" (click)="showID(code.innerText)">Update</button><button style="margin-top: 0; background-color: red; border: none;" (click)="removeClient(code.innerText)">Remove</button>
           </td>
       </tr>

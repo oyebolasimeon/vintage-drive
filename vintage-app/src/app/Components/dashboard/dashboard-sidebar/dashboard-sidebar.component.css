@@ -1,9 +1,10 @@
 .side-bar{
-    width: 60%;
+    position: sticky;
+    width: 80%;
     background-color: rgb(19, 18, 18);
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
-    min-height: 90vh;
+    min-height: 100vh;
     border-radius: 0px 10px 10px 0px;
 }
 
@@ -19,10 +20,10 @@
     background-color: grey;
     border: none;
     border-radius: 5px 5px;
-    margin-right: 5vh;
+    margin-right: 1vh;
     padding: 2vh;
     transition: 0.8s ease-out;
-    
+
 }
 .side-bar ul li a{
     color: #fff;
@@ -30,5 +31,5 @@
 }
 
 .side-bar ul li fa-icon{
-    padding-right: 2vh;
+    padding-right: 1vh;
 }
