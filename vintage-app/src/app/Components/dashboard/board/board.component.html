@@ -12,22 +12,22 @@
     <div class="card-box">
         <div class="client-card">
             <i class="fa fa-2x fa-user-circle" style="color:black; margin: 1.5vh ;"></i>
-            Clients
+             <a style="text-decoration:none; color:black;" [routerLink]="['../client']">Clients</a>
             <h3>{{totalClient.payload.length}} </h3>
         </div>
         <div class="staff-card">
             <i class="fa fa-2x fa-clipboard-user" style="color:black; margin: 1.5vh ;"></i>
-            Staffs
+            <a style="text-decoration:none; color:black;" [routerLink]="['../staff']">Staffs</a>
             <h3>{{totalStaff.payload.length}}</h3>
         </div>
         <div class="vehicle-card">
             <i class="fa fa-2x fa-cars" style="color: black; margin: 1.5vh ;"></i>
-            Vehicles
+            <a style="text-decoration:none; color:black;" [routerLink]="['../vehicle']">Vehicles</a>
             <h3>{{totalVehicle.payload.length}}</h3>
         </div>
         <div class="quote-card">
             <i class="fa fa-2x fa-pen" style="color: black; margin: 1.5vh ;"></i>
-             Quotes
+             <a style="text-decoration:none; color:black;" [routerLink]="['../quote']">Quotes</a>
             <h3>{{totalQuote.payload.length}}</h3>
         </div>
     </div>
