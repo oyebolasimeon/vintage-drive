@@ -56,7 +56,7 @@
   font-weight: 500;
   text-align: left;
   width: 100%;
-  animation: 5s ease-out;
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,7 +67,10 @@
 .staff-card:hover,
 .vehicle-card:hover,
 .quote-card:hover {
-  transform: scale(1.1)
+  transform: scale(1.1);
+  transition: .8s ease-in-out;
+  width: 105%;
+  cursor: pointer;
 }
 
 .card-box h3 {
@@ -85,6 +88,7 @@
   flex-direction: column;
   margin-top: 3rem;
   align-items: center;
+  font-size: 24px;
 }
 
 .map iframe {
