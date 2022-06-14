@@ -43,7 +43,7 @@ export class InvoiceComponent implements OnInit {
       item: ['', Validators.required],
       unit: ['', Validators.required],
       rate: ['', Validators.required],
-      amount: [this.calculateAmt()]
+      // amount: [this.calculateAmt()]
     }),
 
     clientName: ['', Validators.required],
@@ -54,12 +54,12 @@ export class InvoiceComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calculateAmt() {
-    const amt = this.AddNewInvoice.get('clientName').value
-    // * this.AddNewInvoice.value.items.unit
-    // console.log(amt)
-  
-  }
+  // calculateAmt() {
+  //   const amt = this.AddNewInvoice.get('clientName').value
+  //   // * this.AddNewInvoice.value.items.unit
+  //   // console.log(amt)
+
+  // }
 
   showPostField() {
     if (this.postField === false && this.dataField === true) {
