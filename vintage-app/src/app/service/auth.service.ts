@@ -59,10 +59,6 @@ export class AuthService {
   AddNewQuote(quoteCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.quote}`, quoteCred)
   }
-  DeleteQuote(quoteCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.quote+"/"+quoteCode}`)
-  }
-// fix UI
 
 
   // Clients endpoint

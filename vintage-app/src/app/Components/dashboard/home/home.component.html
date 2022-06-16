@@ -1,9 +1,11 @@
 <app-dashboard-navbar></app-dashboard-navbar>
-<section class="main-page">
-    <app-dashboard-sidebar></app-dashboard-sidebar>
-    <div>
-        <router-outlet></router-outlet>
-        
-    </div>
-    <app-spinner></app-spinner>
-</section>
+<div class="modules">
+  <app-dashboard-sidebar></app-dashboard-sidebar>
+
+  <section class="main-page">
+      <div>
+          <router-outlet></router-outlet>
+      </div>
+      <app-spinner></app-spinner>
+  </section>
+</div>

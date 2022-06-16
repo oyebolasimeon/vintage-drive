@@ -21,7 +21,7 @@ export class QuoteComponent implements OnInit {
   postRow :boolean | any = false;
   showQuote = false;
 
-  unit= '';rate = ''; item = '';VehicleName = '';ClientName = '';amount ='';repName = ''; address = '';
+  unit= '';rate = ''; item = '';VehicleName = '';ClientName = '';repName = ''; address = '';
   city = ''; postalCode = ''; state = '';
 
   constructor(private service: AuthService, private fb: FormBuilder, private toastr: ToastrService, private router: Router) {

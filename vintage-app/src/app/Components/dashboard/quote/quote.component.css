@@ -54,9 +54,11 @@ button {
 .quote-form input{
   width: 80%;
   margin-bottom: 2rem;
+  padding: 10px;
   background-color: black;
   border-radius: 3px;
   border: none;
+  color:white;
 }
 
 .quote-form form input::placeholder{
