@@ -9,51 +9,32 @@
 
 <div class="quote-form" *ngIf="postField">
     <form  [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
-      <input type="text"
+      <input type="number"
+              id="clientId"
+              formControlName="clientId"
+              placeholder="Enter Client ID"
+              autocomplete="off"
+              required>
+
+        <input type="number"
+              id="vehicleId"
+              formControlName="vehicleId"
+              placeholder="Enter Vehicle ID"
+              autocomplete="off"
+              required>
+
+        <input type="text"
               id="clientName"
               formControlName="clientName"
               placeholder="Enter Client Name"
+              autocomplete="off"
               required>
-
-              <input type="text"
+        <input type="text"
               id="vehicleName"
               formControlName="vehicleName"
               placeholder="Enter Vehicle Name"
+              autocomplete="off"
               required>
-
-      <div formGroupName="billingAddress" >
-        <input type="text"
-              id="repName"
-              formControlName="repName"
-              placeholder="Enter Rep Name"
-              required>
-
-              <input type="text"
-              id="address"
-              formControlName="address"
-              placeholder="Enter Address"
-              required>
-
-              <input type="text"
-              id="city"
-              formControlName="city"
-              placeholder="Enter City Name"
-              required><br>
-
-              <input type="text"
-              id="postalCode"
-              formControlName="postalCode"
-              placeholder="Enter Postal Code"
-              required><br>
-
-              <input type="text"
-              id="state"
-              formControlName="state"
-              placeholder="Enter State"
-              required><br>
-
-      </div>
-
   <div formGroupName="items" >
         <input type="text"
         id="text"
@@ -77,15 +58,19 @@
         formControlName="rate"
         autocomplete="off"
         required><br>
-
-    <!-- <input type="number"
+    <input type="number"
         placeholder="Enter Amount"
         id="amount"
         [(ngModel)]="amount"
         formControlName="amount"
         autocomplete="off"
-        required><br> -->
+        required><br>
   </div>
+  <input type="number"
+              id="totalAmount"
+              formControlName="totalAmount"
+              placeholder="Enter Total Amount"
+              required>
 
       <button style="width: 50%; margin:auto; display: block"
               [disabled]="!AddNewQuote.valid"
@@ -101,10 +86,6 @@
         <th>Vehicle Name</th>
         <th>Client Name</th>
         <th>Display (Items | Unit | Rate | Amount)</th>
-        <!-- <th>Item</th>
-        <th>Unit</th>
-        <th>Rate</th>
-        <th>Amount</th> -->
       </tr>
     </thead>
     <tbody>

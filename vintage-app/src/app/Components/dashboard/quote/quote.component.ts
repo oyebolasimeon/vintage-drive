@@ -21,8 +21,8 @@ export class QuoteComponent implements OnInit {
   postRow :boolean | any = false;
   showQuote = false;
 
-  unit= '';rate = ''; item = '';VehicleName = '';ClientName = '';repName = ''; address = '';
-  city = ''; postalCode = ''; state = '';
+  unit= '';rate = ''; item = '';vehicleName = '';clientName = '';vehicleId = '';clientId = '';
+  totalAmount =''; amount = '';
 
   constructor(private service: AuthService, private fb: FormBuilder, private toastr: ToastrService, private router: Router) {
     this.service.QuoteList().subscribe(result => {
@@ -33,14 +33,6 @@ export class QuoteComponent implements OnInit {
   }
 
   AddNewQuote = this.fb.group({
-    billingAddress: this.fb.group({
-      repName: ['', Validators.required],
-      address: ['', Validators.required],
-      city: ['', Validators.required],
-      postalCode: ['', Validators.required],
-      state: ['', Validators.required]
-    }),
-
     items: this.fb.group({
       item: ['', Validators.required],
       unit: ['', Validators.required],
@@ -48,8 +40,11 @@ export class QuoteComponent implements OnInit {
       amount: ['', Validators.required]
     }),
 
+    vehicleId: ['', Validators.required],
+    clientId: ['', Validators.required],
     clientName: ['', Validators.required],
-    vehicleName: ['', Validators.required]
+    vehicleName: ['', Validators.required],
+    totalAmount: ['', Validators.required]
   });
 
    showPostField(){

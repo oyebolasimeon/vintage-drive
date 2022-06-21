@@ -18,7 +18,8 @@ export class AuthService {
 
   }
 
-  private BASE_URL = "https://lightup-autocare.herokuapp.com"
+  private BASE_URL = "https://lightup-autocare.herokuapp.com";
+  private ALT_URL = "https://lightup-auto-care.herokuapp.com";
   private LOGIN_URL = this.BASE_URL + this.endpoint.staff + "/login";
 
 
@@ -57,7 +58,7 @@ export class AuthService {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
   }
   AddNewQuote(quoteCred: any){
-    return this.http.post(`${this.BASE_URL+this.endpoint.quote}`, quoteCred)
+    return this.http.post(`${this.ALT_URL+this.endpoint.quote}`, quoteCred)
   }
 
 
