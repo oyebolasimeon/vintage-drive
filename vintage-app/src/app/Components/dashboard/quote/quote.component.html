@@ -8,7 +8,7 @@
   </div>
 
 <div class="quote-form" *ngIf="postField">
-    <form  [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
+    <form [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
       <input type="number"
               id="clientId"
               formControlName="clientId"
@@ -35,9 +35,18 @@
               placeholder="Enter Vehicle Name"
               autocomplete="off"
               required>
-  <div formGroupName="items" >
+        <input type="number"
+              id="totalAmount"
+              formControlName="totalAmount"
+              placeholder="Enter Total Amount"
+              required>
+              <br />
+      <button (click)='addItems()'>Add Items</button><br />
+      <div formArrayName="items"
+      *ngFor="let it of items.controls; let i = index" >
+      <div [formGroupName]="i">
         <input type="text"
-        id="text"
+        id="{{'item'+ i}}"
         [(ngModel)]="item"
         formControlName="item"
         placeholder="Item Ordered"
@@ -45,7 +54,7 @@
 
     <input type="number"
         placeholder="Enter Unit"
-        id="unit"
+        id="{{'unit' + i}}"
         [(ngModel)]="unit"
         formControlName="unit"
         autocomplete="off"
@@ -53,24 +62,20 @@
 
     <input type="number"
         placeholder="Enter Rate"
-        id="rate"
+        id="{{'rate' + i}}"
         [(ngModel)]="rate"
         formControlName="rate"
         autocomplete="off"
         required><br>
     <input type="number"
         placeholder="Enter Amount"
-        id="amount"
+        id="{{'amount'+ i}}"
         [(ngModel)]="amount"
         formControlName="amount"
         autocomplete="off"
         required><br>
+      </div>
   </div>
-  <input type="number"
-              id="totalAmount"
-              formControlName="totalAmount"
-              placeholder="Enter Total Amount"
-              required>
 
       <button style="width: 50%; margin:auto; display: block"
               [disabled]="!AddNewQuote.valid"
@@ -93,7 +98,7 @@
         <td>{{ quote.id }}</td>
         <td>{{ quote.vehicleName}}</td>
         <td>{{ quote.clientName }}</td>
-        <div class="quote-items" *ngFor="let itemy of quote.items" style="border-bottom: 2vh;">
+        <div class="quote-items" *ngFor="let itemy of quote.items; let i = index" style="border-bottom: 2vh;">
           <button (click)="displayQuote()">View more</button>
           <div class="quote-display" *ngIf="showQuote">
             <b>{{itemy.item}}</b> |

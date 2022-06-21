@@ -32,20 +32,36 @@ export class QuoteComponent implements OnInit {
 
   }
 
-  AddNewQuote = this.fb.group({
-    items: this.fb.group({
+  createItems():FormGroup{
+    return this.fb.group({
       item: ['', Validators.required],
       unit: ['', Validators.required],
       rate: ['', Validators.required],
       amount: ['', Validators.required]
-    }),
+    });
+  }
+  // getter for the item formArray
+  get items(): FormArray{
+    return <FormArray> this.AddNewQuote.get('items');
+  }
 
-    vehicleId: ['', Validators.required],
-    clientId: ['', Validators.required],
-    clientName: ['', Validators.required],
-    vehicleName: ['', Validators.required],
-    totalAmount: ['', Validators.required]
-  });
+  addItems() {
+    this.items.push(this.createItems());
+  }
+
+  itemsHolder = this.createItems();
+
+  AddNewQuote = this.fb.group(
+    {
+      vehicleId: ['', Validators.required],
+      clientId: ['', Validators.required],
+      clientName: ['', Validators.required],
+      vehicleName: ['', Validators.required],
+      totalAmount: ['', Validators.required],
+      items:this.fb.array([this.itemsHolder], Validators.required)
+    }
+    // items:this.fb.array([this.createItems()],Validators.required)
+  );
 
    showPostField(){
     if(this.postField === false && this.dataField === true){
