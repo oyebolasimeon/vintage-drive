@@ -1,4 +1,3 @@
-import { TagDefinition } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -60,7 +59,7 @@ export class QuoteComponent implements OnInit {
       totalAmount: ['', Validators.required],
       items:this.fb.array([this.itemsHolder], Validators.required)
     }
-    // items:this.fb.array([this.createItems()],Validators.required)
+
   );
 
    showPostField(){
