@@ -27,7 +27,8 @@ import { ServiceComponent } from './service/service.component';
                 InvoiceComponent,
                 VehicleComponent,
                 PreloaderComponent,
-                ServiceComponent
+                ServiceComponent,
+                QuoteComponent
 
               ],
   imports: [

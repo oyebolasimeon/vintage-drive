@@ -1,34 +1,112 @@
 <main>
   <div class="container">
-  <h1>Customer's Order</h1>
-    <button>
-      Quote
-      <i class="plus icon"></i>
-    </button>
+
+    <h1>Customer's Order</h1>
+      <button (click)="showPostField()" *ngIf="postBtnData">
+        {{postBtnData}}
+      </button>
+  </div>
+
+<div class="quote-form" *ngIf="postField">
+    <form [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
+      <input type="number"
+              id="clientId"
+              formControlName="clientId"
+              placeholder="Enter Client ID"
+              autocomplete="off"
+              required>
+
+        <input type="number"
+              id="vehicleId"
+              formControlName="vehicleId"
+              placeholder="Enter Vehicle ID"
+              autocomplete="off"
+              required>
+
+        <input type="text"
+              id="clientName"
+              formControlName="clientName"
+              placeholder="Enter Client Name"
+              autocomplete="off"
+              required>
+        <input type="text"
+              id="vehicleName"
+              formControlName="vehicleName"
+              placeholder="Enter Vehicle Name"
+              autocomplete="off"
+              required>
+        <input type="number"
+              id="totalAmount"
+              formControlName="totalAmount"
+              placeholder="Enter Total Amount"
+              required>
+              <br />
+      <button (click)='addItems()'>Add Items</button><br />
+      <div formArrayName="items"
+      *ngFor="let it of items.controls; let i = index" >
+      <div [formGroupName]="i">
+        <input type="text"
+        id="{{'item'+ i}}"
+        [(ngModel)]="item"
+        formControlName="item"
+        placeholder="Item Ordered"
+        required><br>
+
+    <input type="number"
+        placeholder="Enter Unit"
+        id="{{'unit' + i}}"
+        [(ngModel)]="unit"
+        formControlName="unit"
+        autocomplete="off"
+        required><br>
+
+    <input type="number"
+        placeholder="Enter Rate"
+        id="{{'rate' + i}}"
+        [(ngModel)]="rate"
+        formControlName="rate"
+        autocomplete="off"
+        required><br>
+    <input type="number"
+        placeholder="Enter Amount"
+        id="{{'amount'+ i}}"
+        [(ngModel)]="amount"
+        formControlName="amount"
+        autocomplete="off"
+        required><br>
+      </div>
+  </div>
+
+      <button style="width: 50%; margin:auto; display: block"
+              [disabled]="!AddNewQuote.valid"
+              type="submit">Create Invoice
+      </button>
+    </form>
 </div>
+
   <table class="ui celled table">
     <thead>
       <tr>
         <th>Id</th>
-        <th>Vehicle Model</th>
-        <th>Address</th>
-        <th>Orders</th>
+        <th>Vehicle Name</th>
+        <th>Client Name</th>
+        <th>Display (Items | Unit | Rate | Amount)</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let quote of quotesList.payload; let i=index">
+      <tr *ngFor="let quote of quotesList.payload;">
         <td>{{ quote.id }}</td>
         <td>{{ quote.vehicleName}}</td>
-        <td>{{ quote.billingAddress.address }}</td>
-        <td *ngFor="">
-          <button class="popup" (click)="onPop()">
-           <i class="eye icon"></i>
-          </button>
-          <span *ngIf="!popUp ? true: false"
-          class="popuptext">
-            PopUp!
-          </span>
-        </td>
+        <td>{{ quote.clientName }}</td>
+        <div class="quote-items" *ngFor="let itemy of quote.items; let i = index" style="border-bottom: 2vh;">
+          <button (click)="displayQuote()">View more</button>
+          <div class="quote-display" *ngIf="showQuote">
+            <b>{{itemy.item}}</b> |
+            <b>{{itemy.unit}}</b> |
+            <b>{{itemy.rate}}</b> |
+            <b>{{itemy.amount}}</b>
+          </div>
+        </div>
       </tr>
     </tbody>
   </table>
