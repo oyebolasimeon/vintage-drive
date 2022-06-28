@@ -108,12 +108,12 @@
         <td>{{ quote.clientName }}</td>
         <div class="quote-items" *ngFor="let itemy of quote.items; let i = index" style="border-bottom: 2vh;">
           <button class="qtn" (click)="displayQuote()">View more</button>
-          <div class="quote-display" *ngIf="showQuote">
+          <!-- <div class="quote-display" *ngIf="showQuote">
             <b>{{itemy.item}}</b> |
             <b>{{itemy.unit}}</b> |
             <b>{{itemy.rate}}</b> |
             <b>{{itemy.amount}}</b>
-          </div>
+          </div> -->
         </div>
       </tr>
     </tbody>

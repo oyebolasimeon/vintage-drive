@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup,FormArray, Validators } from '@angu
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'
 import { AuthService } from 'src/app/service/auth.service';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @Component({
   selector: 'app-quote',
@@ -23,7 +25,7 @@ export class QuoteComponent implements OnInit {
   unit= '';rate = ''; item = '';vehicleName = '';clientName = '';vehicleId = '';clientId = '';
   totalAmount =''; amount = '';
 
-  constructor(private service: AuthService, private fb: FormBuilder, private toastr: ToastrService, private router: Router) {
+  constructor(private service: AuthService, private fb: FormBuilder, private toastr: ToastrService, private router: Router, private matDialog: MatDialog) {
     this.service.QuoteList().subscribe(result => {
       this.quotesList = result;
       console.log(this.quotesList.payload);
@@ -93,12 +95,26 @@ export class QuoteComponent implements OnInit {
   }
 
   displayQuote() {
-   if(!this.showQuote) {
-      this.showQuote = true;
-   } else {
-    this.showQuote = false;
-   }
-   return this.showQuote;
+    let dialogRef = this.matDialog.open(PopUpComponent,{
+      data: {
+        age: 1000,
+        name: "King"
+    }
+    });
+    dialogRef.afterClosed().subscribe(
+      result => {
+        console.log(result);
+      }
+    )
   }
+
+  // displayQuote() {
+  //  if(!this.showQuote) {
+  //     this.showQuote = true;
+  //  } else {
+  //   this.showQuote = false;
+  //  }
+  //  return this.showQuote;
+  // }
 }
 
