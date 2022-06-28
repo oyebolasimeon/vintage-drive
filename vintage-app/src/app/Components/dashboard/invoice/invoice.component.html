@@ -23,7 +23,7 @@
               placeholder="Enter Vehicle Name"
               required>
 
-      <div formGroupName="billingAddress" >
+      <div formGroupName="billingAddress">
 
         
 
@@ -58,37 +58,38 @@
               required><br>
 
       </div>
+      
+      <button style="width: 30%; margin: auto; margin-bottom: 2vh;" (click)="addNewInvoiceItem()">Add Another Item</button> 
+      <div formArrayName="items"  *ngFor="let itemCase of InvoiceItem.controls; let i=index">
+          <h3>Item {{i+1}}</h3>
 
-      <div formGroupName="items" >
 
-        <input type="text"
-        id="text"
-        [(ngModel)]="item"
-        formControlName="item"
-        placeholder="Item Ordered"
-        required><br>
-
-<input type="number"
-        placeholder="Enter Unit"
-        id="unit"
-        [(ngModel)]="units"
-        formControlName="unit"
-        autocomplete="off"
-        required><br>
-
-<input type="number"
-        placeholder="Enter Rate"
-        id="rate"
-        [(ngModel)]="rates"
-        formControlName="rate"
-        autocomplete="off"
-        required><br>
+          <input type="text"
+          id="text"
+          [formControlName]="i"
+          placeholder="Item Ordered"
+          required><br>
+  
+  <input type="number"
+          placeholder="Enter Unit"
+          id="unit"
+          [formControlName]="i"
+          autocomplete="off"
+          required><br>
+    
+  <input type="number"
+          placeholder="Enter Rate"
+          id="rate"
+          [formControlName]="i"
+          autocomplete="off"
+          required><br>
+          <button style="width: 30%; margin: auto; background-color: red; margin-bottom: 2vh;" *ngIf="i>0"  (click)="removeInvoiceItem(i)">Remove Item {{i+1}}</button> 
       </div>
 
 
       
       <button style="width: 50%; margin:auto; display: block"
-              [disabled]="item === '' || units === ''|| rates === ''"
+              [disabled]="!AddNewInvoice.valid"
               type="submit">Create Invoice
       </button>
 
@@ -117,7 +118,8 @@
 <!-- 
           
           
-          
+      .
+      0  
             <button style="margin-top: 0; background-color: red; border: none;">Remove</button></td> -->
       </tr>
   </tbody>

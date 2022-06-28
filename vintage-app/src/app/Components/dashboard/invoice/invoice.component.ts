@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormArray, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr'
 import { AuthService } from 'src/app/service/auth.service';
@@ -13,10 +13,10 @@ export class InvoiceComponent implements OnInit {
 
   invoiceList: any;
   p: number = 1;
+  x : any;
   postField = false;
   dataField = true;
   postBtnData = `Add New Invoice`
-  item = ''; rates = ''; units = '';
   @ViewChild('code')
   code: 'td' = "td";
 
@@ -29,6 +29,12 @@ export class InvoiceComponent implements OnInit {
     })
   }
 
+  ngOnInit(): void {
+
+    this.x = this.AddNewInvoice.get(['items', 'item'])?.value * this.AddNewInvoice.get(['items', 'rate'])?.value;
+    return this.x;
+  }
+
   AddNewInvoice = this.fb.group({
 
     billingAddress: this.fb.group({
@@ -39,27 +45,41 @@ export class InvoiceComponent implements OnInit {
       state: ['', Validators.required]
     }),
 
-    items: this.fb.group({
-      item: ['', Validators.required],
-      unit: ['', Validators.required],
-      rate: ['', Validators.required],
-      // amount: [this.calculateAmt()]
-    }),
+    items: new FormArray([ 
+      // item: ['', Validators.required],
+      // unit: ['', Validators.required],
+      // rate: ['', Validators.required],
+      // amount: ['', Validators.required]
+      // new FormGroup({
+      //   item: new FormControl(''),
+      //   unit: new FormControl(''),
+      //   rate: new FormControl('')
+
+      // })
+
+      new FormControl('')
+    ]),
 
     clientName: ['', Validators.required],
     vehicleName: ['', Validators.required]
 
-  })
+})
 
-  ngOnInit(): void {
-  }
+get InvoiceItem(){
+  return this.AddNewInvoice.get('items') as FormArray;
+}
+  
 
-  // calculateAmt() {
-  //   const amt = this.AddNewInvoice.get('clientName').value
-  //   // * this.AddNewInvoice.value.items.unit
-  //   // console.log(amt)
+ addNewInvoiceItem() {
+   const control = new FormControl(null, [Validators.required]);
+    (<FormArray>this.InvoiceItem).push(control);
+ }
 
-  // }
+ removeInvoiceItem(i: number){
+    this.InvoiceItem.removeAt(i)
+ }
+   
+ 
 
   showPostField() {
     if (this.postField === false && this.dataField === true) {
@@ -77,6 +97,7 @@ export class InvoiceComponent implements OnInit {
 
   onSubmit() {
     console.warn(this.AddNewInvoice.value)
+    // console.log(this.AddNewInvoice.get())
   }
   addInvoice() {
     let payload = this.AddNewInvoice.value

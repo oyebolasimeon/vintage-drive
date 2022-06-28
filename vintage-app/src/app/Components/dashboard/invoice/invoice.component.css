@@ -3,7 +3,8 @@
 main {
   font-family: -apple-system, 'Open Sans',  BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   width: 80%;
-  min-height: 98vh;
+  min-height: 80vh;
+  
 }
 
 .container {
@@ -27,10 +28,25 @@ button {
   font-size: 14px;
 }
 
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 5px #fff;
+}
+::-webkit-scrollbar-thumb{
+  background: green;
+  border-radius: 10px;
+
+}
+
 .invoice-form{
     width: 100%;
     margin: auto;
-    min-height: 20vh;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
     /* background-color: black; */
     display: flex;
     animation: 1s ease-out;
@@ -38,8 +54,11 @@ button {
 .invoice-form form{
     width: 50%;
     margin: auto;
+   
 
 }
+
+
 .invoice-form form input, select{
     width: 100%;
     height: 5vh;
@@ -64,6 +83,8 @@ button {
     background-color: rgb(69, 228, 69);
     cursor:not-allowed;
   }
+
+
 
   /* popup */
   .modal {
