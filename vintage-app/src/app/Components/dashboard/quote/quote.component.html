@@ -9,7 +9,7 @@
 
   <div class="quote-form" *ngIf="postField">
     <form [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
-              <div class="select-group" >
+              <!-- <div class="select-group" >
                 <label for="clientId">Client ID</label>
 
                   <ng-template *ngFor="let items of quotesList; let i = index">
@@ -38,15 +38,40 @@
                 <select name="vehicleName" id="vehicleName">
                   <option value={{items.vehicleName}}>{{items.vehicleName}}</option>
                 </select>
-              </div>
-
+              </div> -->
         <input type="number"
-              id="totalAmount"
-              formControlName="totalAmount"
-              placeholder="Enter Total Amount"
+              id="clientId"
+              formControlName="clientId"
+              placeholder="Enter Client ID"
               required>
               <br />
 
+        <input type="number"
+              id="vehicleId"
+              formControlName="vehicleId"
+              placeholder="Enter Vehicle ID"
+              required>
+              <br />
+
+        <input type="text"
+              id="clientName"
+              formControlName="clientName"
+              placeholder="Enter Client Name"
+              required>
+              <br />
+
+        <input type="text"
+              id="vehicleName"
+              formControlName="vehicleName"
+              placeholder="Enter Vehicle Name"
+              required>
+              <br />
+        <input type="number"
+                id="totalAmount"
+                formControlName="totalAmount"
+                placeholder="Enter Total Amount"
+                required>
+                <br />
 
       <div formArrayName="items"
       *ngFor="let it of items.controls; let i = index" >
