@@ -7,41 +7,47 @@
       </button>
   </div>
 
-<div class="quote-form" *ngIf="postField">
+  <div class="quote-form" *ngIf="postField">
     <form [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
-      <input type="number"
-              id="clientId"
-              formControlName="clientId"
-              placeholder="Enter Client ID"
-              autocomplete="off"
-              required>
+              <div class="select-group" >
+                <label for="clientId">Client ID</label>
 
-        <input type="number"
-              id="vehicleId"
-              formControlName="vehicleId"
-              placeholder="Enter Vehicle ID"
-              autocomplete="off"
-              required>
+                  <ng-template *ngFor="let items of quotesList; let i = index">
+                    <select name="clientId" id="clientId">
+                    <option  value=""><span>iss {{items.payload.clientId}}</span></option>
+                  </select>
+                  </ng-template>
 
-        <input type="text"
-              id="clientName"
-              formControlName="clientName"
-              placeholder="Enter Client Name"
-              autocomplete="off"
-              required>
-        <input type="text"
-              id="vehicleName"
-              formControlName="vehicleName"
-              placeholder="Enter Vehicle Name"
-              autocomplete="off"
-              required>
+              </div>
+
+              <div class="select-group" >
+                <label for="vehicleId"></label>
+                <select name="vehicleId" id="vehicleId">
+                  <option  value={{items.vehicleId}}>{{items.vehicleId}}</option>
+                </select>
+              </div>
+
+              <div class="select-group" *ngFor="let items of quotesList; let i = index">
+                <label for="clientName">Client Name</label>
+                <select name="clientName" id="clientName">
+                  <option value={{items.clientName}}>{{items.clientName}}</option>
+                </select>
+              </div>
+              <div class="select-group" *ngFor="let items of quotesList; let i = index">
+                <label for="vehicleName">Vehicle Name</label>
+                <select name="vehicleName" id="vehicleName">
+                  <option value={{items.vehicleName}}>{{items.vehicleName}}</option>
+                </select>
+              </div>
+
         <input type="number"
               id="totalAmount"
               formControlName="totalAmount"
               placeholder="Enter Total Amount"
               required>
               <br />
-      <button (click)='addItems()'>Add Items</button><br />
+
+
       <div formArrayName="items"
       *ngFor="let it of items.controls; let i = index" >
       <div [formGroupName]="i">
@@ -77,14 +83,16 @@
       </div>
   </div>
 
+
       <button style="width: 50%; margin:auto; display: block"
               [disabled]="!AddNewQuote.valid"
               type="submit">Create Invoice
       </button>
+
     </form>
 </div>
 
-  <table class="ui celled table">
+  <table class="ui celled table" *ngIf="dataField">
     <thead>
       <tr>
         <th>Id</th>
@@ -94,20 +102,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let quote of quotesList.payload;">
+      <tr *ngFor="let quote of quotesList.payload | paginate: {itemsPerPage: 4, currentPage: p};">
         <td>{{ quote.id }}</td>
         <td>{{ quote.vehicleName}}</td>
         <td>{{ quote.clientName }}</td>
         <div class="quote-items" *ngFor="let itemy of quote.items; let i = index" style="border-bottom: 2vh;">
-          <button (click)="displayQuote()">View more</button>
-          <div class="quote-display" *ngIf="showQuote">
+          <button class="qtn" (click)="displayQuote()">View more</button>
+          <!-- <div class="quote-display" *ngIf="showQuote">
             <b>{{itemy.item}}</b> |
             <b>{{itemy.unit}}</b> |
             <b>{{itemy.rate}}</b> |
             <b>{{itemy.amount}}</b>
-          </div>
+          </div> -->
         </div>
       </tr>
     </tbody>
   </table>
+  <pagination-controls *ngIf="dataField" (pageChange)="p = $event"></pagination-controls>
 </main>
+
+
+<app-preloader></app-preloader>
