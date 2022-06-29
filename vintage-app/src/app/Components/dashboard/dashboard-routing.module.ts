@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SpinnerComponent } from 'src/app/Preloader/spinner/spinner.component';
 import { AuthGuard } from 'src/app/shared/auth.guard';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { BoardComponent } from './board/board.component';
@@ -11,6 +12,7 @@ import { QuoteComponent } from './quote/quote.component';
 import { ServiceComponent } from './service/service.component';
 import { StaffComponent } from './staff/staff.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+
 
 const routes: Routes = [
   {
