@@ -16,6 +16,7 @@ import { InterceptorService } from 'src/app/Preloader/interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceComponent } from './service/service.component';
+// import { SpinnerComponent } from 'src/app/Preloader/spinner/spinner.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
 
@@ -30,7 +31,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
                 VehicleComponent,
                 PreloaderComponent,
                 ServiceComponent,
-                PopUpComponent,
+                 PopUpComponent,
                 QuoteComponent,
               ],
   imports: [

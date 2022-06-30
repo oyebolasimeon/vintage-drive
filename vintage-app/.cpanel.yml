@@ -1,0 +1,13 @@
+---
+  deployment:
+    tasks: 
+        - export DEPLOYPATH=/home/oyebkdud/vintage-app.oyebolasimeon.cloud
+        - /bin/cp index.html $DEPLOYPATH
+        - /bin/cp -R forms $DEPLOYPATH
+        - /bin/cp -R docs $DEPLOYPATH
+        - /bin/cp -R assets $DEPLOYPATH
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy

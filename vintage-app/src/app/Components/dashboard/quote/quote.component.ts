@@ -21,6 +21,7 @@ export class QuoteComponent implements OnInit {
   code: 'td' = "td";
   postRow :boolean | any = false;
   showQuote = false;
+  clientList: any;
 
   unit= '';rate = ''; item = '';vehicleName = '';clientName = '';vehicleId = '';clientId = '';
   totalAmount =''; amount = '';
@@ -30,6 +31,11 @@ export class QuoteComponent implements OnInit {
       this.quotesList = result;
       console.log(this.quotesList.payload);
    })
+
+   this.service.GetClient().subscribe(result => {
+    this.clientList = result;
+    console.log(this.clientList.payload);
+  })
 
   }
 

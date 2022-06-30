@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { SpinnerService } from 'src/app/Preloader/spinner.service';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class BoardComponent implements OnInit {
   totalQuote: any;
   totalVehicle: any;
 
-  constructor(private service: AuthService) {
+  constructor(private service: AuthService, public loaderService: SpinnerService) {
 
       this.service.GetStaff().subscribe(result => {
           this.totalStaff = result
