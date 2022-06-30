@@ -33,6 +33,20 @@ export class AuthService {
     return localStorage.getItem('token') != null;
   }
 
+  higherAccess(){
+    return localStorage.getItem('role') == 'admin';
+  }
+
+  logout(){
+    localStorage.clear()
+  }
+
+  autoLogout(expirationDate: number ){
+    setTimeout(() => {
+      this.logout();
+    }, expirationDate)
+  }
+
   //Staff Endpoint
 
   GetStaff(){

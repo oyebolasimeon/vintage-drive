@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
 
     falock = faLock;
   constructor( private service:AuthService, private router:Router, private toastr: ToastrService) { 
-    localStorage.clear();
+    this.service.logout();
   }
 
   Login = new FormGroup({

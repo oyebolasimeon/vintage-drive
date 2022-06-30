@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SpinnerComponent } from 'src/app/Preloader/spinner/spinner.component';
+import { AccessGuardGuard } from 'src/app/shared/access-guard.guard';
 import { AuthGuard } from 'src/app/shared/auth.guard';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { BoardComponent } from './board/board.component';
@@ -26,7 +27,10 @@ const routes: Routes = [
       { path: 'services', component: ServiceComponent, canActivate:[AuthGuard] },
       { path: 'vehicle', component: VehicleComponent, canActivate:[AuthGuard] },
       { path: 'my-profile', component: MyProfileComponent, canActivate:[AuthGuard] },
-      { path: 'staff', component: StaffComponent, canActivate:[AuthGuard] },
+      { path: 'staff', component: StaffComponent, canActivate:[ AccessGuardGuard,
+                                                                AuthGuard 
+                                                              ]
+      },
       { path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: PagenotfoundComponent}
     ]

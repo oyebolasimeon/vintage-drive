@@ -3,11 +3,18 @@
     <section class="client-input" [ngClass]="showID" *ngIf="postRow">
       <form>
         <i class="fa fa-2x fa-ban" (click)="onCancel()" aria-hidden="true"></i>
-        <h2>Customer Info</h2>
-        <label>Name:</label>
-        <input type="text" placeholder="Enter Name: "><br>
+        <h2>Update Customer Info</h2>
+        <label>Customer ID:</label>
+        <select name="clientName"
+                formControlName="id"
+                id="clientName"
+                >
+          <option value="null">Choose Customer ID</option>
+          <option *ngFor="let clientName of clientList.payload"  value={{clientName.name}} > {{clientName.id}} </option>
+        </select>
         <label>Phone:</label>
-        <input type="text" placeholder="Enter telephone number: "><br><br>
+        <input type="text" style="height: 5vh; padding-left: 6vh; background-color: rgb(58, 58, 58); color: #fff;" placeholder="Enter telephone number: "><br><br>
+        <button style="width: 50%; margin:auto; display: block">Update</button>
       </form>
       </section>
   </div>
