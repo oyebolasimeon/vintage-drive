@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { post } from 'jquery';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,12 @@ export class AuthService {
     "signup": "/signup",
     "quote": "/quotes",
     "client": "/clients",
+    "service": "/personalisedservices"
 
   }
 
-  private BASE_URL = "https://lightup-autocare.herokuapp.com"
+  private BASE_URL = "https://lightup-autocare.herokuapp.com";
+  private ALT_URL = "https://lightup-auto-care.herokuapp.com";
   private LOGIN_URL = this.BASE_URL + this.endpoint.staff + "/login";
 
 
@@ -29,6 +31,20 @@ export class AuthService {
 
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
+  }
+
+  higherAccess(){
+    return localStorage.getItem('role') == 'admin';
+  }
+
+  logout(){
+    localStorage.clear()
+  }
+
+  autoLogout(expirationDate: number ){
+    setTimeout(() => {
+      this.logout();
+    }, expirationDate)
   }
 
   //Staff Endpoint
@@ -55,12 +71,10 @@ export class AuthService {
   GetQuotes() {
     return this.http.get(`${this.BASE_URL+this.endpoint.quote}`)
   }
-  AddNewQuote(clientCred: any){
-    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, clientCred)
+  AddNewQuote(quoteCred: any){
+    return this.http.post(`${this.ALT_URL+this.endpoint.quote}`, quoteCred)
   }
-  DeleteQuote(clientCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+clientCode}`)
-  }
+
 
   // Clients endpoint
   GetClient() {
@@ -72,6 +86,9 @@ export class AuthService {
   DeleteClient(clientCode: any){
     return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+clientCode}`)
   }
+  GetClientID(clientID: any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.client+"/"+clientID}`)
+  }
   // update operation to do
 
   // Invoices endpoints
@@ -79,12 +96,26 @@ export class AuthService {
     return this.http.get(`${this.BASE_URL+this.endpoint.invoice}`)
   }
   AddNewInvoice(invoiceCred: any){
-    return this.http.post(`${this.BASE_URL+this.endpoint.client}`, invoiceCred)
+    return this.http.post(`${this.BASE_URL+this.endpoint.invoice}`, invoiceCred)
   }
   DeleteInvoice(invoiceCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.client+"/"+invoiceCode}`)
+    return this.http.delete(`${this.BASE_URL+this.endpoint.invoice+"/"+invoiceCode}`)
   }
   // update operation to do
+
+  // Services Endpoint
+  GetServices() {
+    return this.http.get(`${this.BASE_URL+this.endpoint.service}`)
+  }
+  AddNewService(serviceCred: any){
+    return this.http.post(`${this.BASE_URL+this.endpoint.service}`, serviceCred)
+  }
+  DeleteService(serviceCode: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.service+"/"+serviceCode}`)
+  }
+  GetServicesID (servicesID: any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.service+"/"+servicesID}`)
+  }
 
   //vehicle endpoints
   GetVehicle() {
@@ -93,8 +124,12 @@ export class AuthService {
   AddNewVehicle(vehicleCred: any){
     return this.http.post(`${this.BASE_URL+this.endpoint.vehicle}`, vehicleCred)
   }
-  DeleteVehicle(vehicleCode: any){
-    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCode}`)
+  DeleteVehicle(vehicleCred: any){
+    return this.http.delete(`${this.BASE_URL+this.endpoint.vehicle+"/"+vehicleCred}`)
+  }
+  GetVehicleID (vehicleID:any) {
+    return this.http.get(`${this.BASE_URL+this.endpoint.vehicle+ "/"+vehicleID}`)
+  }
 
    //Quote Endpoints
   QuoteList() {
@@ -102,3 +137,4 @@ export class AuthService {
 
   }
 }
+

@@ -1,44 +1,126 @@
 .board{
-    width: 90%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
     height: 90vh;
     align-items: center;
-    /* background-color: green; */
-    /* display: flex; */
+    margin-left: 2rem;
 }
-.board .card-box{
-    display: flex;
+
+.profile-board {
+  display: flex;
+  background-color:rgb(180, 180, 180);
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 10px;
+  padding: 10px;
+  flex-direction: row;
+  width: 85%;
+  box-shadow: 5px 10px 10px #888888;
 }
-.board .card-box .client-card{
-    flex: 1;
-    width: 5vh;
-    min-height: 30vh;
-    margin-left: 2vh;
-    background-color: black; margin: auto;
-    border: none;
-    border-radius: 15px 115px;
+
+.board-1 {
+  flex: 4;
+  margin-left: 2rem;
 }
-.board .card-box .vehicle-card{
-    flex: 1;
-    width: 5vh;
-    margin: auto;
-    min-height: 30vh;
-    background-color: blue;
-    margin-right: 2vh; border-radius: 15px 115px;
+
+.board-1 h1 {
+  font-size: 48px;
 }
-.board .card-box .staff-card{
-    flex: 1;
-    width: 100%;
-    margin: auto;
-    min-height: 30vh;
-    background-color:red;
-    margin-left: 2vh;
-    margin-right: 2vh; border-radius: 15px 115px;
+
+
+.board-2 {
+  flex:1;
+  height:40%;
 }
-.board .card-box .quote-card{
-    flex: 1;
-    width: 100%;
-    margin: auto;
-    min-height: 30vh;
-    margin-right: 2vh;
-    background-color: yellow; border-radius: 15px 115px;
+
+.profile-comp {
+  height:40%;
+}
+
+.card-box {
+  margin-top: 3rem;
+  width: 85%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  background-color: transparent !important;
+  padding: 10px;
+}
+
+.client-card, .staff-card, .vehicle-card, .quote-card {
+  background-color: rgb(180, 180, 180);
+  border: 1px solid rgb(180, 180, 180);
+  box-shadow: 5px 10px 10px #888888;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 1rem;
+}
+
+.client-card:hover,
+.staff-card:hover,
+.vehicle-card:hover,
+.quote-card:hover {
+  transform: scale(1.1);
+  transition: .8s ease-in-out;
+  width: 105%;
+  cursor: pointer;
+}
+
+.card-box h3 {
+  border: 1px solid red;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  padding: 5px;
+  border-radius: 80%;
+  background-color: red;
+  color: white;
+  font-size: 8px;
+  align-items:flex-end;
+  margin-bottom: 4rem;
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  align-items: center;
+  font-size: 24px;
+}
+
+.map iframe {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile-board {
+    width: 85%;
+  }
+
+  .card-box {
+    width: 50%;
+  }
+
+  .client-card, .staff-card, .vehicle-card, .quote-card {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    width: 60%;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .board {
+    width: 80vw;
+  }
+  .card-box h3 {
+    font-size: 16px;
+    padding: 8px;
+  }
 }

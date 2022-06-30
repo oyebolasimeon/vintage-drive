@@ -1,9 +1,19 @@
+.modules {
+  display: flex;
+  flex-direction: row;
+  align-items:flex-start;
+  margin-top: 0;
+}
+
+
 .main-page{
-    width: 100%;
+    width: 80vw;
     display: grid;
     align-items: center;
     margin: auto;
+    margin-top: 2rem;
+    padding-left: 2rem;
     min-height: 94vh;
     /* background-color: rgb(19, 18, 18); */
-    grid-template-columns: 30% 70%;
+    /* grid-template-columns: 20% 80%; */
 }

@@ -1,4 +1,23 @@
 <main>
+  <div class="client-input">
+    <section class="client-input" [ngClass]="showID" *ngIf="postRow">
+      <form>
+        <i class="fa fa-2x fa-ban" (click)="onCancel()" aria-hidden="true"></i>
+        <h2>Update Customer Info</h2>
+        <label>Customer ID:</label>
+        <select name="clientName"
+                formControlName="id"
+                id="clientName"
+                >
+          <option value="null">Choose Customer ID</option>
+          <option *ngFor="let clientName of clientList.payload"  value={{clientName.name}} > {{clientName.id}} </option>
+        </select>
+        <label>Phone:</label>
+        <input type="text" style="height: 5vh; padding-left: 6vh; background-color: rgb(58, 58, 58); color: #fff;" placeholder="Enter telephone number: "><br><br>
+        <button style="width: 50%; margin:auto; display: block">Update</button>
+      </form>
+      </section>
+  </div>
   <div class="container">
   <h1>Customers</h1>
     <button (click)="showPostField()" *ngIf="postBtnData">
@@ -27,12 +46,12 @@
               placeholder="Enter Phone Number"
               id="phone"
               [(ngModel)]="telephone"
-              formControlName="phone"
+              formControlName="telephone"
               autocomplete="off"
               required><br>
       <button style="width: 50%; margin:auto; display: block"
-              [disabled]="email === '' || telephone === ''|| name === ''"
-              type="submit">Add New Staff
+              [disabled]="email === '' || telephone === '' ||  name === ''"
+              type="submit">Register Client
       </button>
 
   </form>
@@ -53,7 +72,9 @@
           <td #code>{{client.id}}</td>
           <td>{{client.name}}</td>
           <td>{{client.telephone}}</td>
-          <td ><button style="margin-top: 0; background-color: red; border: none;">Remove</button></td>
+
+          <td ><button style="margin-top: 0; margin-right: 2vh; background-color: blue; border: none;" (click)="showID(code.innerText)">Update</button><button style="margin-top: 0; background-color: red; border: none;" (click)="removeClient(code.innerText)">Remove</button>
+          </td>
       </tr>
   </tbody>
 </table>
