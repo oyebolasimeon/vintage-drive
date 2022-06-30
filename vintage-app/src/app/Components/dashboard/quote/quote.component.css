@@ -10,10 +10,10 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 10vh;
+  padding-top: 1vh;
 }
 
-button {
+button, .qtn {
   background-color: green;
   color:white;
   padding: 4px 8px;
@@ -24,6 +24,10 @@ button {
   cursor: pointer;
   margin-top: 16px;
   font-size: 14px;
+}
+
+.qtn {
+  background-color: blue !important;
 }
 
 /* Pop-up feature */
@@ -49,6 +53,20 @@ button {
   animation: 1s ease-out;
   margin: auto;
   min-height: 20vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 80vh;
+}
+
+.quote-form select {
+  width: 75%;
+  height: 5vh;
+}
+
+.quote-form select option {
+  background: #000;
+  border-radius: 3px;
+  margin-bottom: 3rem;
 }
 
 .quote-form input{

@@ -16,7 +16,7 @@ import { SpinnerComponent } from './Preloader/spinner/spinner.component';
 import { InterceptorService } from './Preloader/interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ToastrModule } from 'ngx-toastr'
+import { ToastrModule } from 'ngx-toastr';
 // import { CommonModule } from '@angular/common';
 
 @NgModule({

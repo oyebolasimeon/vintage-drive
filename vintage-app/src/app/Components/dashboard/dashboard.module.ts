@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ClientComponent } from './client/client.component';
-import { InvoiceComponent } from './invoice/invoice.component'; 
+import { InvoiceComponent } from './invoice/invoice.component';
 import { QuoteComponent } from './quote/quote.component';
 
 import { MyProfileComponent } from './my-profile/my-profile.component';
@@ -16,6 +16,9 @@ import { InterceptorService } from 'src/app/Preloader/interceptor.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceComponent } from './service/service.component';
+// import { SpinnerComponent } from 'src/app/Preloader/spinner/spinner.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 
 @NgModule({
@@ -28,15 +31,16 @@ import { ServiceComponent } from './service/service.component';
                 VehicleComponent,
                 PreloaderComponent,
                 ServiceComponent,
-                QuoteComponent
-
+                 PopUpComponent,
+                QuoteComponent,
               ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [
     {

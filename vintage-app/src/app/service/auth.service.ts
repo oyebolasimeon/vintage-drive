@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { post } from 'jquery';
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,20 @@ export class AuthService {
 
   IsLoggedIn() {
     return localStorage.getItem('token') != null;
+  }
+
+  higherAccess(){
+    return localStorage.getItem('role') == 'admin';
+  }
+
+  logout(){
+    localStorage.clear()
+  }
+
+  autoLogout(expirationDate: number ){
+    setTimeout(() => {
+      this.logout();
+    }, expirationDate)
   }
 
   //Staff Endpoint
