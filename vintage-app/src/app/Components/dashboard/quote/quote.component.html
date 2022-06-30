@@ -2,95 +2,75 @@
   <div class="container">
 
     <h1>Customer's Order</h1>
-      <button (click)="showPostField()" *ngIf="postBtnData">
-        {{postBtnData}}
-      </button>
+    <button (click)="showPostField()" *ngIf="postBtnData">
+      {{postBtnData}}
+    </button>
   </div>
 
   <div class="quote-form" *ngIf="postField">
     <form [formGroup]="AddNewQuote" (ngSubmit)="addQuote()">
-              <div class="select-group" >
-                <label for="clientId">Client ID</label>
+      <div class="select-group">
+        <label for="clientId">Client ID</label>
 
-                  <ng-template *ngFor="let items of quotesList; let i = index">
-                    <select name="clientId" id="clientId">
-                    <option  value=""><span>iss {{items.payload.clientId}}</span></option>
-                  </select>
-                  </ng-template>
+          <select name="clientId" id="clientId">
+            <option *ngFor="let items of clientList.payload; let i = index" style="color: white;" value=""><span> {{items.id}}{{i}}</span></option>
+          </select>
 
-              </div>
-
-              <div class="select-group" >
-                <label for="vehicleId"></label>
-                <select name="vehicleId" id="vehicleId">
-                  <option  value={{items.vehicleId}}>{{items.vehicleId}}</option>
-                </select>
-              </div>
-
-              <div class="select-group" *ngFor="let items of quotesList; let i = index">
-                <label for="clientName">Client Name</label>
-                <select name="clientName" id="clientName">
-                  <option value={{items.clientName}}>{{items.clientName}}</option>
-                </select>
-              </div>
-              <div class="select-group" *ngFor="let items of quotesList; let i = index">
-                <label for="vehicleName">Vehicle Name</label>
-                <select name="vehicleName" id="vehicleName">
-                  <option value={{items.vehicleName}}>{{items.vehicleName}}</option>
-                </select>
-              </div>
-
-        <input type="number"
-              id="totalAmount"
-              formControlName="totalAmount"
-              placeholder="Enter Total Amount"
-              required>
-              <br />
-
-
-      <div formArrayName="items"
-      *ngFor="let it of items.controls; let i = index" >
-      <div [formGroupName]="i">
-        <input type="text"
-        id="{{'item'+ i}}"
-        [(ngModel)]="item"
-        formControlName="item"
-        placeholder="Item Ordered"
-        required><br>
-
-    <input type="number"
-        placeholder="Enter Unit"
-        id="{{'unit' + i}}"
-        [(ngModel)]="unit"
-        formControlName="unit"
-        autocomplete="off"
-        required><br>
-
-    <input type="number"
-        placeholder="Enter Rate"
-        id="{{'rate' + i}}"
-        [(ngModel)]="rate"
-        formControlName="rate"
-        autocomplete="off"
-        required><br>
-    <input type="number"
-        placeholder="Enter Amount"
-        id="{{'amount'+ i}}"
-        [(ngModel)]="amount"
-        formControlName="amount"
-        autocomplete="off"
-        required><br>
       </div>
-  </div>
+
+      <ng-template *ngFor="let items of clientList; let i = index">
+        <div class="select-group">
+          <label for="vehicleId"></label>
+          <select name="vehicleId" id="vehicleId">
+            <option value={{items.vehicleId}}>{{items.vehicleId}}</option>
+          </select>
+        </div>
+      </ng-template>
+
+      <ng-template *ngFor="let items of clientList; let i = index">
+
+        <div class="select-group" *ngFor="let items of quotesList; let i = index">
+          <label for="clientName">Client Name</label>
+          <select name="clientName" id="clientName">
+            <option value={{items.clientName}}>{{items.clientName}}</option>
+          </select>
+        </div>
+      </ng-template>
+
+      <ng-template *ngFor="let items of quotesList; let i = index">
+        <div class="select-group" *ngFor="let items of quotesList; let i = index">
+          <label for="vehicleName">Vehicle Name</label>
+          <select name="vehicleName" id="vehicleName">
+            <option value={{items.vehicleName}}>{{items.vehicleName}}</option>
+          </select>
+        </div>
+      </ng-template>
+      <input type="number" id="totalAmount" formControlName="totalAmount" placeholder="Enter Total Amount" required>
+      <br />
 
 
-      <button style="width: 50%; margin:auto; display: block"
-              [disabled]="!AddNewQuote.valid"
-              type="submit">Create Invoice
+      <div formArrayName="items" *ngFor="let it of items.controls; let i = index">
+        <div [formGroupName]="i">
+          <input type="text" id="{{'item'+ i}}" [(ngModel)]="item" formControlName="item" placeholder="Item Ordered"
+            required><br>
+
+          <input type="number" placeholder="Enter Unit" id="{{'unit' + i}}" [(ngModel)]="unit" formControlName="unit"
+            autocomplete="off" required><br>
+
+          <input type="number" placeholder="Enter Rate" id="{{'rate' + i}}" [(ngModel)]="rate" formControlName="rate"
+            autocomplete="off" required><br>
+          <input type="number" placeholder="Enter Amount" id="{{'amount'+ i}}" [(ngModel)]="amount"
+            formControlName="amount" autocomplete="off" required><br>
+        </div>
+      </div>
+
+
+      <button style="width: 50%; margin:auto; display: block" [disabled]="!AddNewQuote.valid" type="submit">Create
+        Invoice
       </button>
 
     </form>
-</div>
+  </div>
 
   <table class="ui celled table" *ngIf="dataField">
     <thead>
@@ -102,7 +82,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let quote of quotesList.payload | paginate: {itemsPerPage: 4, currentPage: p};">
+      <tr *ngFor="let quote of quotesList.payload | paginate: {itemsPerPage: 5, currentPage: p};">
         <td>{{ quote.id }}</td>
         <td>{{ quote.vehicleName}}</td>
         <td>{{ quote.clientName }}</td>
